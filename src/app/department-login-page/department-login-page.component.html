@@ -1,0 +1,19 @@
+<mat-card style="padding-left: 2%;">
+    <h2>Login to Department</h2>
+    <form (submit)="loginToDepartment(postFormDepartment)"#postFormDepartment="ngForm">
+        <mat-form-field>
+            <input matInput type="text" name="collegeId" placeholder="College Id" required ngModel> 
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput type="text" name="departmentId" placeholder="Department Id" required ngModel> 
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput type="password" name="password" placeholder="Password" required ngModel> 
+        </mat-form-field>
+        <br>
+        <button mat-mat-raised-button color="primary" type="submit">Login</button> 
+    </form>
+    </mat-card>
+    

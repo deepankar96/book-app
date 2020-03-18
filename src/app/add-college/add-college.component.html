@@ -1,0 +1,96 @@
+<mat-toolbar color="primary">Add College</mat-toolbar>
+<mat-card class="input-filed">
+    <form (submit)="onNewCollege(postForm)" #postForm="ngForm">
+        <br>
+        <mat-form-field>
+            <input matInput  type ="text" name="collegeName" placeholder="College Name" required ngModel>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput  type ="text" name="collegeCity" placeholder="College City" required ngModel>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>State</mat-label>
+            <select matNativeControl name="collegeState" ngModel required>
+                <option value="01">Andaman and Nicobar Islands</option>
+                <option value="02">Andhra Pradesh</option>
+                <option value="03">Arunachal Pradesh</option>
+                <option value="04">Assam</option>
+                <option value="05">Bihar</option>
+                <option value="06">Chandigarh</option>
+                <option value="07">Chhattisgarh</option>
+                <option value="08">Dadra and Nagar Haveli</option>
+                <option value="09">Daman and Diu</option>
+                <option value="10">Delhi</option>
+                <option value="11">Goa</option>
+                <option value="12">Gujarat</option>
+                <option value="13">Haryana</option>
+                <option value="14">Himachal Pradesh</option>
+                <option value="15">Jammu and Kashmir</option>
+                <option value="16">Jharkhand</option>
+                <option value="17">Karnataka</option>
+                <option value="18">Kerala</option>
+                <option value="19">Lakshadweep</option>
+                <option value="20">Madhya Pradesh</option>
+                <option value="21">Maharashtra</option>
+                <option value="22">Manipur</option>
+                <option value="23">Meghalaya</option>
+                <option value="24">Mizoram</option>
+                <option value="25">Nagaland</option>
+                <option value="26">Orissa</option>
+                <option value="27">Pondicherry</option>
+                <option value="28">Punjab</option>
+                <option value="29">Rajasthan</option>
+                <option value="30">Sikkim</option>
+                <option value="31">Tamil Nadu</option>
+                <option value="32">Tripura</option>
+                <option value="33">Uttaranchal</option>
+                <option value="34">Uttar Pradesh</option>
+                <option value="35">West Bengal</option>
+                </select>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput  type ="text" name="collegeAddress" placeholder="College Address" required ngModel>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput  type ="text" name="collegeLocationLat" placeholder="College Location Latitude" ngModel>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput  type ="text" name="collegeLocationLong" placeholder="College Location Longitude" ngModel>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <mat-label>College Type</mat-label>
+            <select matNativeControl name="collegeType" ngModel required>
+                <option value="1">Government University</option>
+                <option value="2">Private University</option>
+                <option value="3">Government College</option>
+                <option value="4">Private College</option>
+                <option value="5">Private Institution</option>
+            </select>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput  type ="text" name="collegeAffiliatedTo" placeholder="College Affiliated To" ngModel required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput  type ="date" name="collegeEstablishment" placeholder="Year of Establishment" ngModel required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput  type ="email" name="collegeEmail" placeholder="College Email" required ngModel>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput  type ="password" name="collegePassword"placeholder="College Password" required ngModel>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" type="submit" >Add College</button>
+        <br>
+    </form>    
+</mat-card>

@@ -1,0 +1,6 @@
+#sticky-footer{
+    position:fixed;
+    bottom:0px;
+    width: 100%;
+    margin-left: 45%;
+  }
