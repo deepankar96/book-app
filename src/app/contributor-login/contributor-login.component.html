@@ -1,0 +1,20 @@
+<mat-toolbar color="primary">
+    <button mat-button routerLink=''><h2>Home</h2></button>
+</mat-toolbar>
+<br>
+<mat-divider></mat-divider>
+<br>
+<mat-card style="padding-left: 2%; text-align: center;">
+    <h2>Login as Contributor</h2>
+<form (submit)="onSubmitContributorLogin(postForm)" #postForm="ngForm">
+    <mat-form-field>
+        <input matInput type="text" name="contributorId" placeholder="Contributor Id" required ngModel> 
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput type="password" name="contributorPassword" placeholder="Password" required ngModel> 
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" type="submit">Login</button> 
+</form>
+</mat-card>

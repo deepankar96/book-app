@@ -36,6 +36,10 @@ import {collegeAuthInterceptor} from './college-interceptor';
 import { AddCollegeComponent } from './add-college/add-college.component';
 import { DepartmentLoginPageComponent } from './department-login-page/department-login-page.component';
 import { DepartmentHomepageComponent } from './department-homepage/department-homepage.component';
+import { MasterHomePageComponent } from './master-home-page/master-home-page.component';
+import { UserLoginPageComponent } from './user-login-page/user-login-page.component';
+import { ContributorLoginComponent } from './contributor-login/contributor-login.component';
+import { ContributorHomepageComponent } from './contributor-homepage/contributor-homepage.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +53,10 @@ import { DepartmentHomepageComponent } from './department-homepage/department-ho
     AddCollegeComponent,
     DepartmentLoginPageComponent,
     DepartmentHomepageComponent,
+    MasterHomePageComponent,
+    UserLoginPageComponent,
+    ContributorLoginComponent,
+    ContributorHomepageComponent,
   ],
   imports: [
     BrowserModule,
