@@ -11,6 +11,7 @@ import {ContributorLoginService} from '../services/contributorLogin.services'
 })
 export class ContributorLoginComponent implements OnInit {
   url= 'http://localhost:3000/api/contributorLogin';
+  errorMessage:string = '';
 
   constructor(private http:HttpClient,private router:Router,public contributorLoginService:ContributorLoginService) { }
 
@@ -21,10 +22,10 @@ export class ContributorLoginComponent implements OnInit {
     this.http.post<{message:string,token:string,contributorId:string}>(this.url,postForm.value).subscribe(
       (responseData)=>{
         if(responseData.message == "success"){
-          this.contributorLoginService.loginToContributor(responseData.contributorId,responseData.token)
+          this.contributorLoginService.loginToContributor(responseData.contributorId,responseData.token);
         }
         else{
-          console.log(responseData.message)
+          this.errorMessage = responseData.message
         }
       }
     );

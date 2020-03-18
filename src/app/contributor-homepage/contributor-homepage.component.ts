@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContributorLoginService } from '../services/contributorLogin.services';
 
 @Component({
   selector: 'app-contributor-homepage',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContributorHomepageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public contributorLoginService:ContributorLoginService) { }
 
   ngOnInit(): void {
+    console.log(this.contributorLoginService.getToken())
+    console.log(this.contributorLoginService.getContributorId())
   }
 
 }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 
@@ -8,9 +9,14 @@ export class ContributorLoginService{
     private contributorId:string;
     private token:string;
 
+    constructor(private router:Router){
+
+    }
+
     loginToContributor(contributorId:string,token:string){
         this.contributorId = contributorId
         this.token = token
+        this.router.navigate(['contributorHomepage'])
     }
 
     getContributorId(){
