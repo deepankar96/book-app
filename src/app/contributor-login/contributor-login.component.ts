@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import {ContributorLoginService} from '../services/contributorLogin.services'
 
 @Component({
   selector: 'app-contributor-login',
@@ -11,7 +12,7 @@ import { NgForm } from '@angular/forms';
 export class ContributorLoginComponent implements OnInit {
   url= 'http://localhost:3000/api/contributorLogin';
 
-  constructor(private http:HttpClient,private router:Router) { }
+  constructor(private http:HttpClient,private router:Router,public contributorLoginService:ContributorLoginService) { }
 
   ngOnInit(): void {
   }
@@ -20,7 +21,7 @@ export class ContributorLoginComponent implements OnInit {
     this.http.post<{message:string,token:string,contributorId:string}>(this.url,postForm.value).subscribe(
       (responseData)=>{
         if(responseData.message == "success"){
-          console.log(responseData)
+          this.contributorLoginService.loginToContributor(responseData.contributorId,responseData.token)
         }
         else{
           console.log(responseData.message)
