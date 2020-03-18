@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 
 export class ContributorLoginService{
     private contributorId:string;
-    private token:string;
+    private contributorToken:string;
 
     constructor(private router:Router){
 
@@ -15,15 +15,35 @@ export class ContributorLoginService{
 
     loginToContributor(contributorId:string,token:string){
         this.contributorId = contributorId
-        this.token = token
+        this.contributorToken = token
+        this.saveToken()
         this.router.navigate(['contributorHomepage'])
     }
 
+    logoutOfContributor(){
+        this.contributorToken = null;
+        this.contributorId = null;
+        this.removeToken()
+        this.router.navigate(['contributorLogin'])
+    }
+
     getContributorId(){
+        this.contributorId = localStorage.getItem("contributorId")
         return this.contributorId;
     }
 
     getToken(){
-        return this.token;
+        this.contributorToken = localStorage.getItem("contributorToken")
+        return this.contributorToken;
+    }
+
+    private saveToken(){
+        localStorage.setItem("contributorToken",this.contributorToken);
+        localStorage.setItem("contributorId",this.contributorId);
+        }
+
+    private removeToken(){
+        localStorage.removeItem("contributorToken")
+        localStorage.removeItem("contributorId")
     }
 }

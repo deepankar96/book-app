@@ -8,7 +8,7 @@
     <h2>Login as Contributor</h2>
 <form (submit)="onSubmitContributorLogin(postForm)" #postForm="ngForm">
     <mat-form-field>
-        <input matInput type="text" name="contributorId" placeholder="Contributor Id" onkeyup="this.value = this.value.toUpperCase();" required ngModel> 
+        <input matInput type="text" name="contributorId" placeholder="Contributor Id" style="text-transform: uppercase;" required ngModel> 
     </mat-form-field>
     <br>
     <mat-form-field>
@@ -18,3 +18,4 @@
     <button mat-raised-button color="primary" type="submit">Login</button> 
 </form>
 </mat-card>
+{{errorMessage}}
