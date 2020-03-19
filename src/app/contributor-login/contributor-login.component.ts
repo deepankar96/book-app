@@ -19,7 +19,12 @@ export class ContributorLoginComponent implements OnInit {
   }
 
   onSubmitContributorLogin(postForm:NgForm){
-    this.http.post<{message:string,token:string,contributorId:string}>(this.url,postForm.value).subscribe(
+    const sendingData = {
+      contributorId:postForm.value.contributorId.toUpperCase(),
+      contributorPassword:postForm.value.contributorPassword
+    }
+    console.log(sendingData)
+    this.http.post<{message:string,token:string,contributorId:string}>(this.url,sendingData).subscribe(
       (responseData)=>{
         if(responseData.message == "success"){
           this.contributorLoginService.loginToContributor(responseData.contributorId,responseData.token);
