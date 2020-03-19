@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContributorLoginService } from '../services/contributorLogin.services';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-contributor-homepage',
@@ -24,6 +25,10 @@ export class ContributorHomepageComponent implements OnInit {
 
   logout(){
     this.contributorLoginService.logoutOfContributor()
+  }
+
+  addBook(postForm:NgForm){
+    console.log(postForm.value)
   }
 
 }

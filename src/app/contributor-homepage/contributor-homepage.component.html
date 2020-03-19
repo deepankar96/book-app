@@ -3,7 +3,7 @@
     <span class="spacer"></span>
     <button mat-flat-button color="primary" (click)="logout()">Logout</button>
 </mat-toolbar>
-<mat-grid-list cols="2" rowHeight="3:1">
+<mat-grid-list cols="2" rowHeight="2:1">
     <mat-grid-tile>
         <button mat-raised-button color="primary" (click)="displayAddBookForm=true">
             Add Book
@@ -16,7 +16,7 @@
     </mat-grid-tile>
     <mat-grid-tile>
         <mat-card *ngIf="displayAddBookForm">
-            <form>
+            <form (submit)="addBook(postForm)" #postForm="ngForm">
                 <h3>Add Book Details</h3>
                 <mat-form-field>
                     <input matInput placeholder="Book id">
