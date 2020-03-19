@@ -3,7 +3,7 @@
 </mat-toolbar>
 <mat-card style="padding-left: 2%; text-align: center;">
     <br>
-<form  #postForm="ngForm">
+<form  (submit)="loginToUser(postForm)"#postForm="ngForm">
     <mat-form-field>
         <input matInput type="text" name="userId" placeholder="User Id" style="text-transform: uppercase;" required ngModel> 
     </mat-form-field>
