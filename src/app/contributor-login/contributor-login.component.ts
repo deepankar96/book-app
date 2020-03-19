@@ -23,7 +23,6 @@ export class ContributorLoginComponent implements OnInit {
       contributorId:postForm.value.contributorId.toUpperCase(),
       contributorPassword:postForm.value.contributorPassword
     }
-    console.log(sendingData)
     this.http.post<{message:string,token:string,contributorId:string}>(this.url,sendingData).subscribe(
       (responseData)=>{
         if(responseData.message == "success"){
