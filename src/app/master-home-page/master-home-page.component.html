@@ -16,12 +16,12 @@
         <button mat-raised-button color="primary" routerLink='contributorLogin'>Contributor</button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-raised-button >Button2</button>
+        <button mat-raised-button color="primary">Reading History</button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-raised-button >Button3</button>
+        <button mat-raised-button color="primary">Liked Books</button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-raised-button color="primary">Logout</button>
+        <button mat-raised-button (click)="logoutUser()" color="primary">Logout</button>
     </mat-grid-tile>
   </mat-grid-list>

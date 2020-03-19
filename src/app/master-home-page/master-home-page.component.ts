@@ -17,4 +17,8 @@ export class MasterHomePageComponent implements OnInit {
     }
   }
 
+  logoutUser(){
+    this.userLoginService.logout()
+  }
+
 }
