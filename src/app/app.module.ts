@@ -40,7 +40,6 @@ import { MasterHomePageComponent } from './master-home-page/master-home-page.com
 import { UserLoginPageComponent } from './user-login-page/user-login-page.component';
 import { ContributorLoginComponent } from './contributor-login/contributor-login.component';
 import { ContributorHomepageComponent } from './contributor-homepage/contributor-homepage.component';
-
 @NgModule({
   declarations: [
     AppComponent,

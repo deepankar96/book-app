@@ -24,6 +24,7 @@ const routes: Routes = [
   {path:'userLogin', component:UserLoginPageComponent},
   {path:'contributorLogin', component:ContributorLoginComponent},
   {path:'contributorHomepage', component:ContributorHomepageComponent},
+  {path:'userLogin', component:UserLoginPageComponent},
 ];
 
 @NgModule({

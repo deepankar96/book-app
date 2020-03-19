@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserLoginPageComponent implements OnInit {
 
+  errorMessage:string;
+
   constructor() { }
 
   ngOnInit(): void {
