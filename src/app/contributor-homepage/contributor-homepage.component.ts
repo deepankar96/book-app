@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class ContributorHomepageComponent implements OnInit {
   contributorId:string='';
   contributorToken:string='';
+  displayAddBookForm:boolean = false;
 
   constructor(public contributorLoginService:ContributorLoginService,private router:Router) { }
 
