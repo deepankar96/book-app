@@ -60,7 +60,7 @@ export class ContributorHomepageComponent implements OnInit,OnDestroy {
     this.http.post<{message:string}>(this.urlToAddBook,sendingData).subscribe(
       (responseData)=>{
         if(responseData.message == 'success'){
-          this.displayAddBookForm = false
+          window.location.reload();
         }
       }
     );
