@@ -3,7 +3,7 @@
     <span class="spacer"></span>
     <button mat-flat-button color="primary" (click)="logout()">Logout</button>
 </mat-toolbar>
-<mat-grid-list cols="2" rowHeight="2:1">
+<mat-grid-list cols="2" rowHeight="4:1">
     <mat-grid-tile>
         <button mat-raised-button color="primary" (click)="displayAddBookForm=true">
             Add Book
@@ -14,21 +14,23 @@
             List Books
         </button>
     </mat-grid-tile>
-    <mat-grid-tile>
-        <mat-card *ngIf="displayAddBookForm">
-            <form (submit)="addBook(postForm)" #postForm="ngForm">
-                <h3>Add Book Details</h3>
-                <mat-form-field>
-                    <input matInput placeholder="Book id">
-                </mat-form-field>
-                <br>
-                <mat-form-field>
-                    <input matInput placeholder="Book Name">
-                </mat-form-field>
-                <br>
-                <button mat-raised-button color="primary" type="submit">Submit</button>
-                <button mat-raised-button color="primary" type="button"(click)="displayAddBookForm=false">Discard</button>
-            </form>
-        </mat-card>
-    </mat-grid-tile>
 </mat-grid-list>
+<mat-card *ngIf="displayAddBookForm" style="margin: auto;text-align: center;">
+    <form (submit)="addBook(postForm)" #postForm="ngForm">
+        <h3>Add Book Details</h3>
+        <mat-form-field>
+            <input matInput name="bookId" placeholder="Book id" ngModel required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput name="bookName" placeholder="Book Name" ngModel required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput name="bookLanguage" placeholder="Book Language" ngModel required>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" type="submit">Submit</button><br><br>
+        <button mat-raised-button color="primary" type="button"(click)="displayAddBookForm=false">Discard</button>
+    </form>
+</mat-card>

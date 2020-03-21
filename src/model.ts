@@ -37,4 +37,5 @@ export interface book{
     contributorId:string;
     bookId:string;
     bookName:string;
+    bookLanguage:string;
 }

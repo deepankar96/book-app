@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ContributorLoginService } from '../services/contributorLogin.services';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contributor-homepage',
@@ -12,8 +13,10 @@ export class ContributorHomepageComponent implements OnInit {
   contributorId:string='';
   contributorToken:string='';
   displayAddBookForm:boolean = false;
+  bookId:string;
+  urlToAddBook:string = 'http://localhost:3000/api/addbook';
 
-  constructor(public contributorLoginService:ContributorLoginService,private router:Router) { }
+  constructor(public contributorLoginService:ContributorLoginService,private router:Router,private http:HttpClient) { }
 
   ngOnInit(): void {
     if(!this.contributorLoginService.getToken() || !this.contributorLoginService.getContributorId()){
@@ -28,7 +31,25 @@ export class ContributorHomepageComponent implements OnInit {
   }
 
   addBook(postForm:NgForm){
-    console.log(postForm.value)
+    if(postForm.invalid){
+      return
+    }
+    const sendingData = {
+      contributorId:this.contributorLoginService.getContributorId(),
+      bookId:postForm.value.bookId,
+      bookName:postForm.value.bookName,
+      bookLanguage:postForm.value.bookLanguage,
+    }
+    this.http.post<{message:string}>(this.urlToAddBook,sendingData).subscribe(
+      (responseData)=>{
+        console.log(responseData.message)
+      }
+    );
+    
+  }
+
+  checkBookId(){
+    console.log(this.bookId)
   }
 
 }
