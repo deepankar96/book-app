@@ -42,14 +42,14 @@
         <mat-expansion-panel *ngFor="let book of books">
             <mat-expansion-panel-header>
                 <mat-panel-title>
-                    {{book.bookName}}
+                    BookName:  {{book.bookName}}
                 </mat-panel-title>
                 <mat-panel-description>
-                    {{book.bookId}}
+                    BookID:  {{book.bookId}}
                 </mat-panel-description>
             </mat-expansion-panel-header>
             <br>
-        <p>{{book.bookLanguage}}</p>
+        <p>BookLanguage:  {{book.bookLanguage}}</p>
         </mat-expansion-panel>        
     </mat-accordion>
 </mat-card>
