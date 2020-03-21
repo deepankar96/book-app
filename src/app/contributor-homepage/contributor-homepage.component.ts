@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ContributorLoginService } from '../services/contributorLogin.services';
 import { BookService } from '../services/book.services';
 import { Router } from '@angular/router';
@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './contributor-homepage.component.html',
   styleUrls: ['./contributor-homepage.component.css']
 })
-export class ContributorHomepageComponent implements OnInit {
+export class ContributorHomepageComponent implements OnInit,OnDestroy {
   contributorId:string='';
   contributorToken:string='';
   displayAddBookForm:boolean = false;
@@ -22,20 +22,25 @@ export class ContributorHomepageComponent implements OnInit {
   books:book[] = [];
   private bookSub:Subscription;
 
-  constructor(public contributorLoginService:ContributorLoginService,private router:Router,private http:HttpClient,public bookServices:BookService) { }
+  constructor(public contributorLoginService:ContributorLoginService,private router:Router,private http:HttpClient,public bookServices:BookService) {
+   }
 
   ngOnInit(): void {
     if(!this.contributorLoginService.getToken() || !this.contributorLoginService.getContributorId()){
       this.router.navigate(['contributorLogin'])
     }
-    this.contributorId=this.contributorLoginService.getToken()
-    this.contributorToken=this.contributorLoginService.getContributorId()
-    this.bookServices.getBooks()
+    this.contributorId=this.contributorLoginService.getContributorId()
+    this.contributorToken=this.contributorLoginService.getToken()
+    this.bookServices.getBooks(this.contributorId)
     this.bookSub = this.bookServices.getBooksListstner().subscribe(
       (books:book[])=>{
         this.books = books
       }
     );
+  }
+
+  ngOnDestroy(){
+    this.bookSub.unsubscribe();
   }
 
   logout(){
@@ -62,7 +67,7 @@ export class ContributorHomepageComponent implements OnInit {
     
   }
 
-  listBook(){
+  listBook(){  
   this.displayAddBookForm = false
   this.displayListBookContents = true    
   }

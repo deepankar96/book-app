@@ -15,12 +15,11 @@ export class BookService{
     getBooksUrl = 'http://localhost:3000/api/getBooksForContributor';
 
     constructor(private http:HttpClient,public contributorLoginService:ContributorLoginService){
-        this.contributorId = contributorLoginService.getContributorId()
     }
 
-    getBooks(){
+    getBooks(contributorIdFromDashboard:string){
         const sendingData = {
-            contributorId:this.contributorId
+            contributorId:contributorIdFromDashboard
         }
         this.http.post<{message:string,post}>(this.getBooksUrl,sendingData).subscribe((postData)=>{
             this. books = postData.post;
