@@ -26,7 +26,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-import {collegeAuthInterceptor} from './college-interceptor';
+
 import { MasterHomePageComponent } from './master-home-page/master-home-page.component';
 import { UserLoginPageComponent } from './user-login-page/user-login-page.component';
 import { ContributorLoginComponent } from './contributor-login/contributor-login.component';
@@ -57,7 +57,7 @@ import { ContributorHomepageComponent } from './contributor-homepage/contributor
     MatDividerModule,
     MatSelectModule,
   ],
-  providers: [   {provide:HTTP_INTERCEPTORS,useClass:collegeAuthInterceptor,multi:true}],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
