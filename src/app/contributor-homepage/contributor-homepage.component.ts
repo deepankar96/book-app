@@ -42,7 +42,9 @@ export class ContributorHomepageComponent implements OnInit {
     }
     this.http.post<{message:string}>(this.urlToAddBook,sendingData).subscribe(
       (responseData)=>{
-        console.log(responseData.message)
+        if(responseData.message == 'success'){
+          this.displayAddBookForm = false
+        }
       }
     );
     
