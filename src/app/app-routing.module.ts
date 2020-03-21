@@ -5,6 +5,7 @@ import { MasterHomePageComponent } from './master-home-page/master-home-page.com
 import { UserLoginPageComponent } from './user-login-page/user-login-page.component';
 import { ContributorLoginComponent } from './contributor-login/contributor-login.component';
 import { ContributorHomepageComponent } from './contributor-homepage/contributor-homepage.component';
+import { BookDisplayPageComponent } from './book-display-page/book-display-page.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path:'contributorLogin', component:ContributorLoginComponent},
   {path:'contributorHomepage', component:ContributorHomepageComponent},
   {path:'userLogin', component:UserLoginPageComponent},
+  {path:'bookDisplay', component:BookDisplayPageComponent},
 ];
 
 @NgModule({

@@ -15,10 +15,24 @@ export class MasterHomePageComponent implements OnInit {
     if(!this.userLoginService.getUserId()){
       this.router.navigate(['userLogin'])
     }
+    localStorage.removeItem("bookLanguage")
   }
 
   logoutUser(){
     this.userLoginService.logout()
+  }
+
+  routeToAssamese(){
+    localStorage.setItem("bookLanguage",'assamese')
+    this.router.navigate(['bookDisplay'])
+  }
+  routeToEnglish(){
+    localStorage.setItem("bookLanguage",'english')
+    this.router.navigate(['bookDisplay'])
+  }
+  routeToBengali(){
+    localStorage.setItem("bookLanguage",'bengali')
+    this.router.navigate(['bookDisplay'])
   }
 
 }
