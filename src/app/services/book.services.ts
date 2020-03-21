@@ -6,13 +6,13 @@ import {ContributorLoginService} from './contributorLogin.services'
 
 @Injectable({providedIn:'root'})
 
-export class DepartmentService{
+export class BookService{
     private books:book[] = [];
     private booksUpdated = new Subject<book[]>();
     numberofBooks:number;
 
     contributorId:string;
-    getBooksUrl = '';
+    getBooksUrl = 'http://localhost:3000/api/getBooksForContributor';
 
     constructor(private http:HttpClient,public contributorLoginService:ContributorLoginService){
         this.contributorId = contributorLoginService.getContributorId()

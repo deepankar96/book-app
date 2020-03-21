@@ -5,12 +5,12 @@
 </mat-toolbar>
 <mat-grid-list cols="2" rowHeight="4:1">
     <mat-grid-tile>
-        <button mat-raised-button color="primary" (click)="displayAddBookForm=true">
+        <button mat-raised-button color="primary" (click)="displayAddBookForm=true;displayListBookContents=false">
             Add Book
         </button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-raised-button color="primary">
+        <button mat-raised-button color="primary" (click)="listBook()">
             List Books
         </button>
     </mat-grid-tile>
@@ -33,4 +33,23 @@
         <button mat-raised-button color="primary" type="submit">Submit</button><br><br>
         <button mat-raised-button color="primary" type="button"(click)="displayAddBookForm=false">Discard</button>
     </form>
+</mat-card>
+<mat-card *ngIf="displayListBookContents">
+    <mat-card-title>
+        <h2 style="text-align: center;">Contributions</h2>
+    </mat-card-title>
+    <mat-accordion style="padding: 2%;">
+        <mat-expansion-panel *ngFor="let book of books">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    {{book.bookName}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{book.bookId}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <br>
+        <p>{{book.bookLanguage}}</p>
+        </mat-expansion-panel>        
+    </mat-accordion>
 </mat-card>
