@@ -29,9 +29,10 @@ export class BookDisplayPageComponent implements OnInit {
     );
   }
 
-  likeBook(bookId:string){
+  likeBook(bookId:string,bookName:string){
     console.log(this.userId)
     console.log(bookId)
+    console.log(bookName)
   }
 
 }
