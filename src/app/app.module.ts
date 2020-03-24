@@ -32,6 +32,7 @@ import { UserLoginPageComponent } from './user-login-page/user-login-page.compon
 import { ContributorLoginComponent } from './contributor-login/contributor-login.component';
 import { ContributorHomepageComponent } from './contributor-homepage/contributor-homepage.component';
 import { BookDisplayPageComponent } from './book-display-page/book-display-page.component';
+import { BookContentEditPageComponent } from './book-content-edit-page/book-content-edit-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +41,7 @@ import { BookDisplayPageComponent } from './book-display-page/book-display-page.
     ContributorLoginComponent,
     ContributorHomepageComponent,
     BookDisplayPageComponent,
+    BookContentEditPageComponent,
   ],
   imports: [
     BrowserModule,

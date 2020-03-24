@@ -29,6 +29,7 @@ export class ContributorHomepageComponent implements OnInit,OnDestroy {
     if(!this.contributorLoginService.getToken() || !this.contributorLoginService.getContributorId()){
       this.router.navigate(['contributorLogin'])
     }
+    localStorage.removeItem("bookIdForContributor")
     this.contributorId=this.contributorLoginService.getContributorId()
     this.contributorToken=this.contributorLoginService.getToken()
     this.bookServices.getBooks(this.contributorId)
@@ -74,6 +75,12 @@ export class ContributorHomepageComponent implements OnInit,OnDestroy {
 
   checkBookId(){
     console.log(this.bookId)
+  }
+
+
+  addBookToLocalStorage(bookId){
+    localStorage.setItem("bookIdForContributor",bookId)
+    this.router.navigate(['contributorBookDisplay'])
   }
 
 }
