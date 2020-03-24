@@ -13,10 +13,12 @@ export class BookDisplayPageComponent implements OnInit {
   bookPerLanguageSub:Subscription;
   books:book[] = [];
   displayBookContents:boolean = false;
+  userId:string;
 
   constructor(public bookPerLanguageService:BookServicePerLanguage) { }
 
   ngOnInit(): void {
+    this.userId = localStorage.getItem("userId")
     this.bookLanguage=localStorage.getItem("bookLanguage")
     this.bookPerLanguageService.getBooks(this.bookLanguage)
     this.bookPerLanguageSub = this.bookPerLanguageService.getBooksListstner().subscribe(
@@ -25,6 +27,11 @@ export class BookDisplayPageComponent implements OnInit {
         this.displayBookContents = true
       }
     );
+  }
+
+  likeBook(bookId:string){
+    console.log(this.userId)
+    console.log(bookId)
   }
 
 }

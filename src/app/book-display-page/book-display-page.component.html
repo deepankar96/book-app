@@ -17,6 +17,9 @@
             </mat-expansion-panel-header>
             <br>
         <p>BookLanguage:  {{book.bookLanguage}}</p>
+        <mat-action-row>
+            <button mat-raised-button color="accent" (click)="likeBook(book.bookId)">Like Book</button>
+          </mat-action-row>
         </mat-expansion-panel>        
     </mat-accordion>
 </mat-card>
