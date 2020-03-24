@@ -1,13 +1,9 @@
 <mat-toolbar color="primary">Content for : {{bookId}}</mat-toolbar>
-<br>
-<mat-grid-list cols="3" rowHeight="4:1">
+<mat-grid-list cols="2" rowHeight="4:1">
     <mat-grid-tile>
-        <button mat-raised-button color="primary" (click)="filePicker.click()">
+        <button mat-raised-button color="primary" (click)="displayParagraphBookForm=true">
             Add Paragraphs
         </button>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <input type="file" #filePicker>
     </mat-grid-tile>
     <mat-grid-tile>
         <button mat-raised-button color="primary" >
@@ -15,3 +11,24 @@
         </button>
     </mat-grid-tile>
 </mat-grid-list>
+
+<mat-card *ngIf="displayParagraphBookForm" style="margin: auto;text-align: center;">
+    <form  #postForm="ngForm">
+        <h3>Add Paragraph Details</h3>
+        <mat-form-field>
+            <input matInput name="ParagraphId" placeholder="Paragraph id" ngModel required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput name="ParagraphTitle" placeholder="Paragraph Title" ngModel required>
+        </mat-form-field>
+        <br>
+        <div>
+            <button mat-stroked-button type="button" (click)="filePicker.click()">Paragraph Audio</button><br>
+            <input type="file" #filePicker>
+        </div>
+        <br>
+        <button mat-raised-button color="primary" type="submit">Submit</button><br><br>
+        <button mat-raised-button color="primary" type="button"(click)="displayParagraphBookForm=false">Discard</button>
+    </form>
+</mat-card>

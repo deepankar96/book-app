@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookContentEditPageComponent implements OnInit {
   bookId:string;
+  displayParagraphBookForm:boolean = false;
   constructor() { }
 
   ngOnInit(): void {
