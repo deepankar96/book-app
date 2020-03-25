@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookServicePerLanguage } from '../services/bookPerLanguage.services';
 import { Subscription } from 'rxjs';
 import { book } from 'src/model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-book-display-page',
@@ -14,8 +15,9 @@ export class BookDisplayPageComponent implements OnInit {
   books:book[] = [];
   displayBookContents:boolean = false;
   userId:string;
+  urlForLikedPosts:string = 'http://localhost:3000/api/likeBook';
 
-  constructor(public bookPerLanguageService:BookServicePerLanguage) { }
+  constructor(public bookPerLanguageService:BookServicePerLanguage,private http:HttpClient) { }
 
   ngOnInit(): void {
     this.userId = localStorage.getItem("userId")
@@ -30,9 +32,16 @@ export class BookDisplayPageComponent implements OnInit {
   }
 
   likeBook(bookId:string,bookName:string){
-    console.log(this.userId)
-    console.log(bookId)
-    console.log(bookName)
+    const sendingData = {
+      userId: this.userId,
+      bookId: bookId,
+      bookName:bookName
+    }
+    this.http.post<{message:string}>(this.urlForLikedPosts,sendingData).subscribe(
+      (responseData)=>{
+        console.log(responseData.message)
+      }
+    );
   }
 
 }
