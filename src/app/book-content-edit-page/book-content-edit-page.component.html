@@ -13,7 +13,7 @@
 </mat-grid-list>
 
 <mat-card *ngIf="displayParagraphBookForm" style="margin: auto;text-align: center;">
-    <form  #postForm="ngForm">
+    <form (submit)="onSubmitParagraph(postForm)"  #postForm="ngForm">
         <h3>Add Paragraph Details</h3>
         <mat-form-field>
             <input matInput name="ParagraphId" placeholder="Paragraph id" ngModel required>

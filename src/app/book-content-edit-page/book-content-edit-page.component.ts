@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-book-content-edit-page',
@@ -12,6 +13,10 @@ export class BookContentEditPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.bookId = localStorage.getItem("bookIdForContributor")
+  }
+
+  onSubmitParagraph(postform:NgForm){
+    console.log(postform.value)
   }
 
 }
