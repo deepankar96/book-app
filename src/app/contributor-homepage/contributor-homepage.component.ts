@@ -19,6 +19,7 @@ export class ContributorHomepageComponent implements OnInit,OnDestroy {
   displayListBookContents:boolean = false;
   bookId:string;
   urlToAddBook:string = 'http://localhost:3000/api/addbook';
+  urlToCreateTable:string = 'http://localhost:3000/api/createDataTableForBook';
   books:book[] = [];
   private bookSub:Subscription;
 
@@ -58,10 +59,19 @@ export class ContributorHomepageComponent implements OnInit,OnDestroy {
       bookName:postForm.value.bookName,
       bookLanguage:postForm.value.bookLanguage,
     }
-    this.http.post<{message:string}>(this.urlToAddBook,sendingData).subscribe(
+    this.http.post<{message:string,bookId:string}>(this.urlToAddBook,sendingData).subscribe(
       (responseData)=>{
         if(responseData.message == 'success'){
-          window.location.reload();
+          const newSendingData = {
+            bookId:responseData.bookId
+          }
+          this.http.post<{message:string}>(this.urlToCreateTable,newSendingData).subscribe(
+            (newResponseData) => {
+              if(newResponseData.message == 'success'){
+                window.location.reload();
+              }
+            }
+          );
         }
       }
     );
