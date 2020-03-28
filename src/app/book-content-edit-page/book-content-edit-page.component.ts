@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-book-content-edit-page',
@@ -10,7 +11,9 @@ export class BookContentEditPageComponent implements OnInit {
   bookId:string;
   displayParagraphBookForm:boolean = false;
   paragraphAudio:File;
-  constructor() { }
+  urlToAddParagraph:string = 'http://localhost:3000/api/addParagraph';
+
+  constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
     this.bookId = localStorage.getItem("bookIdForContributor")
@@ -22,7 +25,7 @@ export class BookContentEditPageComponent implements OnInit {
       paragraphTitle:postform.value.paragraphTitle,
       pragraphAudio:this.paragraphAudio
     }
-    console.log(sendingData)
+    this.http.post(this.urlToAddParagraph,sendingData).subscribe();
   }
 
   onAddAudio(event:Event){
