@@ -9,6 +9,7 @@ import { NgForm } from '@angular/forms';
 export class BookContentEditPageComponent implements OnInit {
   bookId:string;
   displayParagraphBookForm:boolean = false;
+  paragraphAudio:File;
   constructor() { }
 
   ngOnInit(): void {
@@ -16,7 +17,16 @@ export class BookContentEditPageComponent implements OnInit {
   }
 
   onSubmitParagraph(postform:NgForm){
-    console.log(postform.value)
+    const sendingData = {
+      paragraphId:postform.value.paragraphId,
+      paragraphTitle:postform.value.paragraphTitle,
+      pragraphAudio:this.paragraphAudio
+    }
+    console.log(sendingData)
   }
 
+  onAddAudio(event:Event){
+    const file = (event.target as HTMLInputElement).files[0];
+    this.paragraphAudio = file;
+  }
 }
