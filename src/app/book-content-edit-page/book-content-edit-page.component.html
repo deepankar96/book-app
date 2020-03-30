@@ -1,4 +1,8 @@
-<mat-toolbar color="primary">Content for : {{bookId}}</mat-toolbar>
+<mat-toolbar color="primary">
+    <button mat-button routerLink='/contributorHomepage'><h2>Contributor Dashborad</h2></button>
+    <span class="spacer"></span>
+    Content for : {{bookId}}
+</mat-toolbar>
 <mat-grid-list cols="2" rowHeight="4:1">
     <mat-grid-tile>
         <button mat-raised-button color="primary" (click)="displayParagraphBookForm=true">
