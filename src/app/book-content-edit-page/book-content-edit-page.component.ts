@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-content-edit-page',
@@ -14,10 +15,13 @@ export class BookContentEditPageComponent implements OnInit {
   urlToAddParagraph:string = 'http://localhost:3000/api/addParagraph';
   disableSubmitButton:boolean = true;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private router:Router) { }
 
   ngOnInit(): void {
     this.bookId = localStorage.getItem("bookIdForContributor")
+    if(!this.bookId){
+      this.router.navigate(['contributorHomepage'])
+    }
   }
 
   onSubmitParagraph(postform:NgForm){
