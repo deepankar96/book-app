@@ -20,12 +20,9 @@ export class BookContentEditPageComponent implements OnInit {
   }
 
   onSubmitParagraph(postform:NgForm){
-    const sendingData = {
-      paragraphId:postform.value.paragraphId,
-      paragraphTitle:postform.value.paragraphTitle,
-      pragraphAudio:this.paragraphAudio
-    }
-    this.http.post(this.urlToAddParagraph,sendingData).subscribe();
+    const formData = new FormData();
+    formData.append('paragraphAudio',this.paragraphAudio);
+    this.http.post(this.urlToAddParagraph,formData).subscribe();
   }
 
   onAddAudio(event:Event){
