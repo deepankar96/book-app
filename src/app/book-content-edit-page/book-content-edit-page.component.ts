@@ -12,6 +12,7 @@ export class BookContentEditPageComponent implements OnInit {
   displayParagraphBookForm:boolean = false;
   paragraphAudio:File;
   urlToAddParagraph:string = 'http://localhost:3000/api/addParagraph';
+  disableSubmitButton:boolean = true;
 
   constructor(private http:HttpClient) { }
 
@@ -21,16 +22,27 @@ export class BookContentEditPageComponent implements OnInit {
 
   onSubmitParagraph(postform:NgForm){
     const formData = new FormData();
+    formData.append('paragraphNumber',postform.value.paragraphNumber);
+    formData.append('paragraphTitle',postform.value.paragraphTitle);
+    formData.append('bookId',this.bookId);
     formData.append('paragraphAudio',this.paragraphAudio);
     this.http.post<{message:string}>(this.urlToAddParagraph,formData).subscribe(
       (responseData) =>{
-        console.log(responseData.message)
+        if(responseData.message == 'success'){
+          this.displayParagraphBookForm = false;
+        }
       }
     );
   }
 
   onAddAudio(event:Event){
     const file = (event.target as HTMLInputElement).files[0];
-    this.paragraphAudio = file;
+    if(file.type.split('/')[1] == 'mp3' || file.type.split('/')[1]=='wav'){
+      this.disableSubmitButton = false;
+      this.paragraphAudio = file;
+    }
+    else{
+      this.disableSubmitButton = true;
+    }
   }
 }

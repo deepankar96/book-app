@@ -16,7 +16,7 @@
     <form (submit)="onSubmitParagraph(postForm)"  #postForm="ngForm">
         <h3>Add Paragraph Details</h3>
         <mat-form-field>
-            <input matInput name="paragraphId" placeholder="Paragraph id" ngModel required>
+            <input matInput name="paragraphNumber" placeholder="Paragraph Number" ngModel required>
         </mat-form-field>
         <br>
         <mat-form-field>
@@ -28,7 +28,8 @@
             <input type="file" #filePicker (change)="onAddAudio($event)">
         </div>
         <br>
-        <button mat-raised-button color="primary" type="submit">Submit</button><br><br>
+        <button mat-raised-button color="primary" type="submit" [disabled]="disableSubmitButton">Submit</button><br><br>
         <button mat-raised-button color="primary" type="button"(click)="displayParagraphBookForm=false">Discard</button>
     </form>
+    <h3>Only files with extension mp3 and wav are supported</h3>
 </mat-card>
