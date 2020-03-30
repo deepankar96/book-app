@@ -30,6 +30,7 @@ export class BookContentEditPageComponent implements OnInit {
       (responseData) =>{
         if(responseData.message == 'success'){
           this.displayParagraphBookForm = false;
+          this.disableSubmitButton = true;
         }
       }
     );
