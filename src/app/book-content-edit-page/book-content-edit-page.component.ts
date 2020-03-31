@@ -1,28 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import {ParagraphService} from '../services/paragraph.services'
+import { paragraph } from 'src/model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-book-content-edit-page',
   templateUrl: './book-content-edit-page.component.html',
   styleUrls: ['./book-content-edit-page.component.css']
 })
-export class BookContentEditPageComponent implements OnInit {
+export class BookContentEditPageComponent implements OnInit,OnDestroy{
   bookId:string;
   displayParagraphBookForm:boolean = false;
   displayParagrapListForm:boolean = false;
   paragraphAudio:File;
   urlToAddParagraph:string = 'http://localhost:3000/api/addParagraph';
   disableSubmitButton:boolean = true;
+  paragraphs:paragraph[] = [];
+  private paragraphSub:Subscription;
 
-  constructor(private http:HttpClient,private router:Router) { }
+  constructor(private http:HttpClient,private router:Router,public paragraphServices:ParagraphService) { 
+    this.paragraphs = []
+  }
 
   ngOnInit(): void {
     this.bookId = localStorage.getItem("bookIdForContributor")
     if(!this.bookId){
       this.router.navigate(['contributorHomepage'])
     }
+    this.paragraphServices.getParagraphs(this.bookId)
+    this.paragraphSub = this.paragraphServices.getparagraphsListstner().subscribe(
+      (paragraphs:paragraph[])=>{
+        this.paragraphs = paragraphs
+      }
+    );
   }
 
   onSubmitParagraph(postform:NgForm){
@@ -50,5 +63,9 @@ export class BookContentEditPageComponent implements OnInit {
     else{
       this.disableSubmitButton = true;
     }
+  }
+
+  ngOnDestroy(){
+    this.paragraphSub.unsubscribe()
   }
 }
