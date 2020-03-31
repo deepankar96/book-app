@@ -5,12 +5,12 @@
 </mat-toolbar>
 <mat-grid-list cols="2" rowHeight="4:1">
     <mat-grid-tile>
-        <button mat-raised-button color="primary" (click)="displayParagraphBookForm=true">
+        <button mat-raised-button color="primary" (click)="displayParagraphBookForm=true; displayParagrapListForm=false">
             Add Paragraphs
         </button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-raised-button color="primary" >
+        <button mat-raised-button color="primary" (click)="displayParagrapListForm=true;displayParagraphBookForm=false">
             List Paragraphs
         </button>
     </mat-grid-tile>
@@ -36,4 +36,17 @@
         <button mat-raised-button color="primary" type="button"(click)="displayParagraphBookForm=false">Discard</button>
     </form>
     <h3>Only files with extension mp3 and wav are supported</h3>
+</mat-card>
+<mat-card *ngIf="displayParagrapListForm" style="margin: auto;text-align: center;">
+    <mat-accordion>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                Test
+            </mat-expansion-panel-header>
+            <p><audio controls>
+                <source src="http://localhost:3000/AudioFiles/try1-1585582556764.wav">
+              </audio>
+            </p>
+        </mat-expansion-panel>
+    </mat-accordion>
 </mat-card>

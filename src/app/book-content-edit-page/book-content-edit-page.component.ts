@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class BookContentEditPageComponent implements OnInit {
   bookId:string;
   displayParagraphBookForm:boolean = false;
+  displayParagrapListForm:boolean = false;
   paragraphAudio:File;
   urlToAddParagraph:string = 'http://localhost:3000/api/addParagraph';
   disableSubmitButton:boolean = true;
