@@ -49,6 +49,7 @@ export class BookContentEditPageComponent implements OnInit,OnDestroy{
         if(responseData.message == 'success'){
           this.displayParagraphBookForm = false;
           this.disableSubmitButton = true;
+          window.location.reload();
         }
       }
     );
