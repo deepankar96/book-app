@@ -23,7 +23,6 @@ export class BookContentEditPageComponent implements OnInit {
     if(!this.bookId){
       this.router.navigate(['contributorHomepage'])
     }
-
   }
 
   onSubmitParagraph(postform:NgForm){
