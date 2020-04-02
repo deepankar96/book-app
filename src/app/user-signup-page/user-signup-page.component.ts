@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-user-signup-page',
@@ -8,8 +9,9 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./user-signup-page.component.css']
 })
 export class UserSignupPageComponent implements OnInit {
+  urlToAddUser:string = 'http://localhost:3000/api/signupUser';
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private http:HttpClient) { }
 
   ngOnInit(): void {
     if(localStorage.getItem('userId')){
@@ -27,7 +29,11 @@ export class UserSignupPageComponent implements OnInit {
       userName:postForm.value.userName,
       userPassword:postForm.value.userPassword,
     }
-    console.log(sendingData)
+    this.http.post<{message:string,bookId:string}>(this.urlToAddUser,sendingData).subscribe(
+      (responseData) =>{
+        
+      }
+    );
   }
 
 }
