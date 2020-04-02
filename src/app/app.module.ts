@@ -34,6 +34,7 @@ import { ContributorHomepageComponent } from './contributor-homepage/contributor
 import { BookDisplayPageComponent } from './book-display-page/book-display-page.component';
 import { BookContentEditPageComponent } from './book-content-edit-page/book-content-edit-page.component';
 import { BookContentDisplayPageComponent } from './book-content-display-page/book-content-display-page.component';
+import { UserSignupPageComponent } from './user-signup-page/user-signup-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +45,7 @@ import { BookContentDisplayPageComponent } from './book-content-display-page/boo
     BookDisplayPageComponent,
     BookContentEditPageComponent,
     BookContentDisplayPageComponent,
+    UserSignupPageComponent,
   ],
   imports: [
     BrowserModule,
