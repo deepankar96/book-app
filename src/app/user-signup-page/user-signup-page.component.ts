@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-user-signup-page',
@@ -14,9 +15,19 @@ export class UserSignupPageComponent implements OnInit {
     if(localStorage.getItem('userId')){
       this.router.navigate([''])
     }
+  }
+
+  onSignupUser(postForm:NgForm){
     var currentDate = new Date()
-    console.log(currentDate.getSeconds())
-    console.log(currentDate.getMinutes())
+    var minute = currentDate.getMinutes().toString()
+    var second = currentDate.getSeconds().toString()
+    var userid = postForm.value.userName.split(' ')[0] + minute + second
+    const sendingData = {
+      userId:userid,
+      userName:postForm.value.userName,
+      userPassword:postForm.value.userPassword,
+    }
+    console.log(sendingData)
   }
 
 }
