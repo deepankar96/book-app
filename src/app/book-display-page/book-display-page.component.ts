@@ -24,6 +24,7 @@ export class BookDisplayPageComponent implements OnInit {
     this.userId = localStorage.getItem("userId")
     this.bookLanguage=localStorage.getItem("bookLanguage")
     this.bookPerLanguageService.getBooks(this.bookLanguage)
+    localStorage.removeItem('displaybookId')
     this.bookPerLanguageSub = this.bookPerLanguageService.getBooksListstner().subscribe(
       (books:book[])=>{
         this.books = books
@@ -46,7 +47,8 @@ export class BookDisplayPageComponent implements OnInit {
   }
 
 
-  viewBookDetails(){
+  viewBookDetails(bookId:string){
+    localStorage.setItem('displaybookId',bookId)
     this.router.navigate(['userBookDisplay'])
   }
 
