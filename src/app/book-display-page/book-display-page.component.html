@@ -19,7 +19,7 @@
         <p>BookLanguage:  {{book.bookLanguage}}</p>
         <mat-action-row>
             <button mat-raised-button color="accent">Like Book</button>
-            <button mat-raised-button color="primary">View Book</button>
+            <button mat-raised-button color="primary" (click)="viewBookDetails()">View Book</button>
           </mat-action-row>
         </mat-expansion-panel>        
     </mat-accordion>

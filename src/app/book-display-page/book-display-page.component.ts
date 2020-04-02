@@ -3,6 +3,7 @@ import { BookServicePerLanguage } from '../services/bookPerLanguage.services';
 import { Subscription } from 'rxjs';
 import { book } from 'src/model';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-display-page',
@@ -17,7 +18,7 @@ export class BookDisplayPageComponent implements OnInit {
   userId:string;
   urlForLikedPosts:string = 'http://localhost:3000/api/likeBook';
 
-  constructor(public bookPerLanguageService:BookServicePerLanguage,private http:HttpClient) { }
+  constructor(public bookPerLanguageService:BookServicePerLanguage,private http:HttpClient,private router:Router) { }
 
   ngOnInit(): void {
     this.userId = localStorage.getItem("userId")
@@ -42,6 +43,11 @@ export class BookDisplayPageComponent implements OnInit {
         console.log(responseData.message)
       }
     );
+  }
+
+
+  viewBookDetails(){
+    this.router.navigate(['userBookDisplay'])
   }
 
 }
