@@ -10,6 +10,9 @@ export class UserSignupPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    var currentDate = new Date()
+    console.log(currentDate.getSeconds())
+    console.log(currentDate.getMinutes())
   }
 
 }

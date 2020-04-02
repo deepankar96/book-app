@@ -18,9 +18,6 @@
 <mat-card *ngIf="displayAddBookForm" style="margin: auto;text-align: center;">
     <form (submit)="addBook(postForm)" #postForm="ngForm">
         <h3>Add Book Details</h3>
-        <mat-form-field>
-            <input matInput name="bookId" placeholder="Book id" ngModel required>
-        </mat-form-field>
         <br>
         <mat-form-field>
             <input matInput name="bookName" placeholder="Book Name" ngModel required>
