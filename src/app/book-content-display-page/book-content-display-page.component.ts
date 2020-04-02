@@ -18,7 +18,6 @@ export class BookContentDisplayPageComponent implements OnInit,OnDestroy {
 
   ngOnInit(): void {
     this.displayBookId = localStorage.getItem('displaybookId')
-    console.log(this.displayBookId)
     this.paragraphServices.getParagraphs(this.displayBookId)
     this.paragraphSub = this.paragraphServices.getparagraphsListstner().subscribe(
       (paragraphs:paragraph[])=>{
