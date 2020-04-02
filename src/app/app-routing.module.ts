@@ -8,11 +8,13 @@ import { ContributorHomepageComponent } from './contributor-homepage/contributor
 import { BookDisplayPageComponent } from './book-display-page/book-display-page.component';
 import { BookContentEditPageComponent } from './book-content-edit-page/book-content-edit-page.component';
 import { BookContentDisplayPageComponent } from './book-content-display-page/book-content-display-page.component';
+import { UserSignupPageComponent } from './user-signup-page/user-signup-page.component';
 
 
 const routes: Routes = [
   {path:'', component:MasterHomePageComponent},
   {path:'userLogin', component:UserLoginPageComponent},
+  {path:'userSignUp', component:UserSignupPageComponent},
   {path:'contributorLogin', component:ContributorLoginComponent},
   {path:'contributorHomepage', component:ContributorHomepageComponent},
   {path:'userLogin', component:UserLoginPageComponent},

@@ -1,1 +1,17 @@
-<p>user-signup-page works!</p>
+<mat-toolbar color="primary" style="text-align: center;">
+    Signup Page
+</mat-toolbar>
+<mat-card style="padding-left: 2%; text-align: center;">
+    <br>
+<form  #postForm="ngForm">
+    <mat-form-field>
+        <input matInput type="text" name="userName" placeholder="Name" required ngModel> 
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput type="password" name="userPassword" placeholder="Password" required ngModel> 
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" type="submit">SignUp</button> 
+</form>
+</mat-card>
