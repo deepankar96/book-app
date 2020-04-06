@@ -29,9 +29,11 @@ export class UserSignupPageComponent implements OnInit {
       userName:postForm.value.userName,
       userPassword:postForm.value.userPassword,
     }
-    this.http.post<{message:string,bookId:string}>(this.urlToAddUser,sendingData).subscribe(
+    this.http.post<{message:string,userkId:string}>(this.urlToAddUser,sendingData).subscribe(
       (responseData) =>{
-        
+        if(responseData.message == 'success'){
+          this.router.navigate(['userLogin'])
+        }
       }
     );
   }

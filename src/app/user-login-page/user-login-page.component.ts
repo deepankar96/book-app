@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { UserLoginService } from '../services/userLogin.services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-login-page',
@@ -13,7 +14,7 @@ export class UserLoginPageComponent implements OnInit {
   errorMessage:string;
   url:string = 'http://localhost:3000/api/userLogin';
 
-  constructor(private http:HttpClient,public userLoginService:UserLoginService) { }
+  constructor(private http:HttpClient,public userLoginService:UserLoginService,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -33,6 +34,10 @@ export class UserLoginPageComponent implements OnInit {
         }
       }
     );
+  }
+
+  signUpUser(){
+    this.router.navigate(['userSignUp'])
   }
 
 }
