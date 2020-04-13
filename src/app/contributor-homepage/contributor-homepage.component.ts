@@ -22,6 +22,7 @@ export class ContributorHomepageComponent implements OnInit,OnDestroy {
   urlToCreateTable:string = 'http://localhost:3000/api/createDataTableForBook';
   books:book[] = [];
   private bookSub:Subscription;
+  coverImageFile:File;
 
   constructor(public contributorLoginService:ContributorLoginService,private router:Router,private http:HttpClient,public bookServices:BookService) {
    }
@@ -95,6 +96,11 @@ export class ContributorHomepageComponent implements OnInit,OnDestroy {
   addBookToLocalStorage(bookId){
     localStorage.setItem("bookIdForContributor",bookId)
     this.router.navigate(['contributorBookDisplay'])
+  }
+
+  onAddImage(event:Event){
+    const file = (event.target as HTMLInputElement).files[0];
+    this.coverImageFile = file
   }
 
 }
