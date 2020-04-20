@@ -63,8 +63,19 @@ export class ContributorHomepageComponent implements OnInit,OnDestroy {
       bookId:generateBookId,
       bookName:postForm.value.bookName,
       bookLanguage:postForm.value.bookLanguage,
+      bookCover:this.coverImageFile
     }
-    this.http.post<{message:string,bookId:string}>(this.urlToAddBook,sendingData).subscribe(
+
+    const formDataNew:FormData = new FormData();
+    formDataNew.append('contributorId',this.contributorLoginService.getContributorId());
+    formDataNew.append('bookId', generateBookId);
+    formDataNew.append('bookName', postForm.value.bookName);
+    formDataNew.append('bookLanguage', postForm.value.bookLanguage);
+    formDataNew.append('bookCover', this.coverImageFile);
+    // for (var value of formDataNew.values()) {
+    //   console.log(value); 
+    // }
+    this.http.post<{message:string,bookId:string}>(this.urlToAddBook,formDataNew).subscribe(
       (responseData)=>{
         if(responseData.message == 'success'){
           const newSendingData = {
@@ -80,7 +91,6 @@ export class ContributorHomepageComponent implements OnInit,OnDestroy {
         }
       }
     );
-    
   }
 
   listBook(){  
