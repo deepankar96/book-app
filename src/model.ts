@@ -5,6 +5,7 @@ export interface book{
     bookLanguage:string;
     viewCount:number;
     status:string;
+    coverImage:string;
 }
 
 export interface paragraph{
