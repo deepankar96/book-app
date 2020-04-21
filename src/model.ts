@@ -4,6 +4,7 @@ export interface book{
     bookName:string;
     bookLanguage:string;
     viewCount:number;
+    status:string;
 }
 
 export interface paragraph{
