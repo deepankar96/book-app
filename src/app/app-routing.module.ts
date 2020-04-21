@@ -9,6 +9,8 @@ import { BookDisplayPageComponent } from './book-display-page/book-display-page.
 import { BookContentEditPageComponent } from './book-content-edit-page/book-content-edit-page.component';
 import { BookContentDisplayPageComponent } from './book-content-display-page/book-content-display-page.component';
 import { UserSignupPageComponent } from './user-signup-page/user-signup-page.component';
+import { SuperAdminLoginPageComponent } from './super-admin-login-page/super-admin-login-page.component';
+import { SuperAdminPageComponent } from './super-admin-page/super-admin-page.component';
 
 
 const routes: Routes = [
@@ -21,6 +23,8 @@ const routes: Routes = [
   {path:'bookDisplay', component:BookDisplayPageComponent},
   {path:'contributorBookDisplay', component:BookContentEditPageComponent},
   {path:'userBookDisplay', component:BookContentDisplayPageComponent},
+  {path:'superAdminLogin', component:SuperAdminLoginPageComponent},
+  {path:'superAdminPage', component:SuperAdminPageComponent},
 ];
 
 @NgModule({
