@@ -58,13 +58,6 @@ export class ContributorHomepageComponent implements OnInit,OnDestroy {
     var minute = currentDate.getMinutes().toString();
     var second = currentDate.getSeconds().toString();
     var generateBookId = postForm.value.bookLanguage + minute + second +postForm.value.bookName[0];
-    const sendingData = {
-      contributorId:this.contributorLoginService.getContributorId(),
-      bookId:generateBookId,
-      bookName:postForm.value.bookName,
-      bookLanguage:postForm.value.bookLanguage,
-      bookCover:this.coverImageFile
-    }
 
     const formDataNew:FormData = new FormData();
     formDataNew.append('contributorId',this.contributorLoginService.getContributorId());
