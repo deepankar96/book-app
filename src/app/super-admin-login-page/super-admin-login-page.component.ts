@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./super-admin-login-page.component.css']
 })
 export class SuperAdminLoginPageComponent implements OnInit {
+  errorMessage:string;
 
   constructor() { }
 

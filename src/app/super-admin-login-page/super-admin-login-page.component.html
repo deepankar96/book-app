@@ -1,1 +1,18 @@
-<p>super-admin-login-page works!</p>
+<mat-toolbar color="primary" style="text-align: center;">
+    Super Admin Login Page
+</mat-toolbar>
+<mat-card style="padding-left: 2%; text-align: center;">
+    <br>
+<form  #postForm="ngForm">
+    <mat-form-field>
+        <input matInput type="text" name="userId" placeholder="User Id" style="text-transform: uppercase;" required ngModel> 
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput type="password" name="userPassword" placeholder="Password" required ngModel> 
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" type="submit">Login</button> 
+</form>
+</mat-card>
+<mat-card style="text-align: center">{{errorMessage}}</mat-card>
