@@ -45,4 +45,7 @@ export class SuperAdminPageComponent implements OnInit {
     this.router.navigate(['superAdminBook'])
   }
 
+  logout(){
+    this.router.navigate(['userLogin'])
+  }
 }
