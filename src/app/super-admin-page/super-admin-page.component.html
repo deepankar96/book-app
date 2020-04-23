@@ -1,1 +1,27 @@
-<p>super-admin-page works!</p>
+<mat-toolbar color='primary'>Super Admin DashBoard</mat-toolbar>
+<mat-card>
+    <mat-card-title>
+        <h2 style="text-align: center;">All Books</h2>
+    </mat-card-title>
+    <mat-accordion style="padding: 2%;">
+        <mat-expansion-panel *ngFor="let book of booksForSuperAdmin">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    BookName:  {{book.bookName}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    BookID:  {{book.bookId}} || Contributor:{{book.contributorId}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <br>
+        <p><img src="http://localhost:3000/BookCoverImages/{{book.coverImage}}"></p>
+        <p>BookLanguage:  {{book.bookLanguage}}</p>
+        <p>Views:{{book.viewCount}}</p>
+        <p>Book Status:{{book.status}}</p>
+        <mat-action-row>
+            <button mat-raised-button>View Book</button>
+            <button mat-raised-button>Approve Book</button>
+          </mat-action-row>
+        </mat-expansion-panel>        
+    </mat-accordion>
+</mat-card>
