@@ -33,7 +33,13 @@ export class SuperAdminPageComponent implements OnInit {
       status:'approved',
       bookId:bookIdSuperAdmin
     }
-    this.http.post(this.urlToUpdateStatus,sendingData).subscribe();
+    this.http.post<{message:string}>(this.urlToUpdateStatus,sendingData).subscribe(
+      (responseData)=>{
+        if(responseData.message == 'success'){
+          window.location.reload();
+        }
+      }
+    );
   }
 
   rejectBook(bookIdSuperAdmin:string){
@@ -41,7 +47,13 @@ export class SuperAdminPageComponent implements OnInit {
       status:'rejected',
       bookId:bookIdSuperAdmin
     }
-    this.http.post(this.urlToUpdateStatus,sendingData).subscribe();
+    this.http.post<{message:string}>(this.urlToUpdateStatus,sendingData).subscribe(
+      (responseData)=>{
+        if(responseData.message == 'success'){
+          window.location.reload();
+        }
+      }
+    );
   }
 
   viewBook(bookId:string){
