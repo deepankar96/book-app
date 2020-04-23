@@ -12,8 +12,9 @@ import { Router } from '@angular/router';
 export class SuperAdminPageComponent implements OnInit {
   booksForSuperAdmin:book[] = [];
   private bookSuperAdminSub:Subscription;
+  urlToUpdateStatus:string = 'http://localhost:3000/api/updateStatus';
 
-  constructor(public bookServiceForSuperAdmin:BookServiceForSuperAdmin,private router:Router) { }
+  constructor(public bookServiceForSuperAdmin:BookServiceForSuperAdmin,private router:Router,) { }
 
   ngOnInit(): void {
     this.bookServiceForSuperAdmin.getBooksForSuperAdmin()
