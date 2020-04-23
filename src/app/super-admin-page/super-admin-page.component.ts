@@ -27,9 +27,17 @@ export class SuperAdminPageComponent implements OnInit {
 
 
   approveBook(){
+    const sendingData = {
+      status:'approved'
+    }
+    console.log(sendingData)
   }
 
   rejectBook(){
+    const sendingData = {
+      status:'rejected'
+    }
+    console.log(sendingData)
   }
 
   viewBook(bookId:string){
