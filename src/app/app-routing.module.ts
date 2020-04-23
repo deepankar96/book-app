@@ -11,6 +11,7 @@ import { BookContentDisplayPageComponent } from './book-content-display-page/boo
 import { UserSignupPageComponent } from './user-signup-page/user-signup-page.component';
 import { SuperAdminLoginPageComponent } from './super-admin-login-page/super-admin-login-page.component';
 import { SuperAdminPageComponent } from './super-admin-page/super-admin-page.component';
+import { BookDisplaySuperAdminComponent } from './book-display-super-admin/book-display-super-admin.component';
 
 
 const routes: Routes = [
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path:'userBookDisplay', component:BookContentDisplayPageComponent},
   {path:'superAdminLogin', component:SuperAdminLoginPageComponent},
   {path:'superAdminPage', component:SuperAdminPageComponent},
+  {path:'superAdminBook', component:BookDisplaySuperAdminComponent},
 ];
 
 @NgModule({

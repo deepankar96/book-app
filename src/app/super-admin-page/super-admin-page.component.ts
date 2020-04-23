@@ -42,7 +42,7 @@ export class SuperAdminPageComponent implements OnInit {
 
   viewBook(bookId:string){
     localStorage.setItem('displaybookId',bookId)
-    this.router.navigate(['userBookDisplay'])
+    this.router.navigate(['superAdminBook'])
   }
 
 }
