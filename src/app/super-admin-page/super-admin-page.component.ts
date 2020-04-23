@@ -3,6 +3,7 @@ import { BookServiceForSuperAdmin } from '../services/bookForSuperAdmin.services
 import { book } from 'src/model';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-super-admin-page',
@@ -14,7 +15,7 @@ export class SuperAdminPageComponent implements OnInit {
   private bookSuperAdminSub:Subscription;
   urlToUpdateStatus:string = 'http://localhost:3000/api/updateStatus';
 
-  constructor(public bookServiceForSuperAdmin:BookServiceForSuperAdmin,private router:Router,) { }
+  constructor(public bookServiceForSuperAdmin:BookServiceForSuperAdmin,private router:Router,private http:HttpClient) { }
 
   ngOnInit(): void {
     this.bookServiceForSuperAdmin.getBooksForSuperAdmin()
@@ -27,18 +28,20 @@ export class SuperAdminPageComponent implements OnInit {
   }
 
 
-  approveBook(){
+  approveBook(bookIdSuperAdmin:string){
     const sendingData = {
-      status:'approved'
+      status:'approved',
+      bookId:bookIdSuperAdmin
     }
-    console.log(sendingData)
+    this.http.post(this.urlToUpdateStatus,sendingData).subscribe();
   }
 
-  rejectBook(){
+  rejectBook(bookIdSuperAdmin:string){
     const sendingData = {
-      status:'rejected'
+      status:'rejected',
+      bookId:bookIdSuperAdmin
     }
-    console.log(sendingData)
+    this.http.post(this.urlToUpdateStatus,sendingData).subscribe();
   }
 
   viewBook(bookId:string){
