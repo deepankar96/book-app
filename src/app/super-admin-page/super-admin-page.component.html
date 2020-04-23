@@ -19,8 +19,8 @@
         <p>Views:{{book.viewCount}}</p>
         <p>Book Status:{{book.status}}</p>
         <mat-action-row>
-            <button mat-raised-button>View Book</button>
-            <button mat-raised-button>Approve Book</button>
+            <button mat-raised-button *ngIf="book.status!='rejected'">View Book</button>
+            <button mat-raised-button *ngIf="book.status=='waiting'">Approve Book</button>
           </mat-action-row>
         </mat-expansion-panel>        
     </mat-accordion>
