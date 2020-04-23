@@ -19,8 +19,8 @@
         <p>Views:{{book.viewCount}}</p>
         <p>Book Status:{{book.status}}</p>
         <mat-action-row>
-            <button mat-raised-button color='primary' *ngIf="book.status!='rejected'">View Book</button>
-            <button mat-raised-button color='accent' *ngIf="book.status=='waiting'">Approve Book</button>
+            <button mat-raised-button color='primary' *ngIf="book.status!='rejected'" (click)="viewBook(book.bookId)">View Book</button>
+            <button mat-raised-button color='accent' *ngIf="book.status=='waiting'" (click)="approveBook()">Approve Book</button>
             <button mat-raised-button color='warn' *ngIf="book.status=='waiting'">Reject Book</button>
           </mat-action-row>
         </mat-expansion-panel>        

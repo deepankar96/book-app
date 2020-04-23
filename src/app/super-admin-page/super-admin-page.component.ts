@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookServiceForSuperAdmin } from '../services/bookForSuperAdmin.services';
 import { book } from 'src/model';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-super-admin-page',
@@ -12,15 +13,28 @@ export class SuperAdminPageComponent implements OnInit {
   booksForSuperAdmin:book[] = [];
   private bookSuperAdminSub:Subscription;
 
-  constructor(public bookServiceForSuperAdmin:BookServiceForSuperAdmin) { }
+  constructor(public bookServiceForSuperAdmin:BookServiceForSuperAdmin,private router:Router) { }
 
   ngOnInit(): void {
     this.bookServiceForSuperAdmin.getBooksForSuperAdmin()
     this.bookSuperAdminSub = this.bookServiceForSuperAdmin.getBooksForSuperAdminListstner().subscribe(
       (books:book[])=>{
         this.booksForSuperAdmin = books
+        localStorage.clear()
       }
     );
+  }
+
+
+  approveBook(){
+  }
+
+  rejectBook(){
+  }
+
+  viewBook(bookId:string){
+    localStorage.setItem('displaybookId',bookId)
+    this.router.navigate(['userBookDisplay'])
   }
 
 }
