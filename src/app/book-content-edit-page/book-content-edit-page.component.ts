@@ -57,7 +57,9 @@ export class BookContentEditPageComponent implements OnInit,OnDestroy{
 
   onAddAudio(event:Event){
     const file = (event.target as HTMLInputElement).files[0];
-    if(file.type.split('/')[1] == 'mp3' || file.type.split('/')[1]=='wav'){
+    console.log(file)
+    //if(file.type.split('/')[1] == 'mp3' || file.type.split('/')[1]=='wav'){
+      if(file.type.split('/')[0] == 'audio'){
       this.disableSubmitButton = false;
       this.paragraphAudio = file;
     }
