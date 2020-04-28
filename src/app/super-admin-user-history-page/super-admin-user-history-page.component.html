@@ -1,0 +1,17 @@
+<mat-toolbar color='primary'>
+    <button mat-flat-button color="primary" routerLink='/superAdminPage'><h2>Home</h2></button>
+</mat-toolbar>
+<mat-card>
+    <mat-accordion>
+        <mat-expansion-panel *ngFor="let book of books">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    BookId:  {{book}}
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-action-row>
+                <button mat-raised-button color="primary" (click)="viewBook(book)">View Book</button>
+              </mat-action-row>
+        </mat-expansion-panel>
+    </mat-accordion>
+</mat-card>

@@ -2,15 +2,21 @@
     <span class="spacer"></span>
     <button mat-flat-button color='primary' (click)="logout()">Logout</button>
 </mat-toolbar>
-<mat-grid-list cols="2" rowHeight="4:1">
+<mat-grid-list cols="4" rowHeight="4:1">
     <mat-grid-tile>
-        <button mat-raised-button color="primary" >User List</button>
+        <button mat-raised-button color="primary" (click)="displayBooks=true;displayContributorList=false;displayUserList=false">Book List</button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-raised-button color="primary" >contributor List</button>
+        <button mat-raised-button color="primary" (click)="displayBooks=false;displayContributorList=false;displayUserList=true">User List</button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-raised-button color="primary" (click)="displayBooks=false;displayContributorList=true;displayUserList=false">Contributor List</button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-raised-button color="primary" >Add Contributor</button>
     </mat-grid-tile>
   </mat-grid-list>
-  <mat-tab-group>
+  <mat-tab-group *ngIf="displayBooks">
     <mat-tab label="Approved Books">
         <mat-card *ngFor="let book of booksForSuperAdmin">
             <mat-accordion style="padding: 2%;">
@@ -90,3 +96,37 @@
         </mat-card>
     </mat-tab>
   </mat-tab-group>
+  <mat-card *ngIf="displayUserList" >
+    <mat-accordion style="padding: 2%;">
+        <mat-expansion-panel *ngFor="let user of users" >
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <h2>User Id:{{user[0]}}</h2>
+                </mat-panel-title>
+                <mat-panel-description>
+                    <p>Name:{{user[1]}}</p>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-action-row>
+                <button mat-raised-button color='primary' (click)="viewUserHistory(user[0])" >View User Details</button>
+            </mat-action-row>
+        </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card>
+  <mat-card *ngIf="displayContributorList" >
+    <mat-accordion style="padding: 2%;">
+        <mat-expansion-panel *ngFor="let user of contributors" >
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <h2>Contributor Id:{{user[0]}}</h2>
+                </mat-panel-title>
+                <mat-panel-description>
+                    <p>Status:{{user[1]}}</p>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <mat-action-row>
+                <button mat-raised-button color='warn' >Revoke Privilages</button>
+            </mat-action-row>
+        </mat-expansion-panel>
+    </mat-accordion>
+  </mat-card>

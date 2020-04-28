@@ -13,6 +13,7 @@ import { SuperAdminLoginPageComponent } from './super-admin-login-page/super-adm
 import { SuperAdminPageComponent } from './super-admin-page/super-admin-page.component';
 import { BookDisplaySuperAdminComponent } from './book-display-super-admin/book-display-super-admin.component';
 import { UserReadingHistoryPageComponent } from './user-reading-history-page/user-reading-history-page.component';
+import { SuperAdminUserHistoryPageComponent } from './super-admin-user-history-page/super-admin-user-history-page.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path:'superAdminPage', component:SuperAdminPageComponent},
   {path:'superAdminBook', component:BookDisplaySuperAdminComponent},
   {path:'userReadingHistory', component:UserReadingHistoryPageComponent},
+  {path:'superAdminReadingHistory', component:SuperAdminUserHistoryPageComponent},
 ];
 
 @NgModule({

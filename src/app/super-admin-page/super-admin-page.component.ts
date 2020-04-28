@@ -12,11 +12,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SuperAdminPageComponent implements OnInit {
   booksForSuperAdmin:book[] = [];
-  booksForSuperAdminApproved:book[] = [];
-  booksForSuperAdminWaiting:book[] = [];
-  booksForSuperAdminRejected:book[] = [];
+  users = [];
+  contributors = [];
   private bookSuperAdminSub:Subscription;
   urlToUpdateStatus:string = 'http://localhost:3000/api/updateStatus';
+  urlToViewUsers:string = 'http://localhost:3000/api/viewUsers';
+  urlToViewContributors:string = 'http://localhost:3000/api/viewContributors';
+  displayBooks:boolean = true;
+  displayUserList:boolean = false;
+  displayContributorList:boolean = false;
+
 
   constructor(public bookServiceForSuperAdmin:BookServiceForSuperAdmin,private router:Router,private http:HttpClient) { }
 
@@ -28,7 +33,17 @@ export class SuperAdminPageComponent implements OnInit {
         localStorage.clear()
       }
     );
-  }
+    this.http.get<{message:string,post}>(this.urlToViewUsers).subscribe(
+      (responseData)=>{
+        this.users = responseData.post
+      }
+    );
+    this.http.get<{message:string,post}>(this.urlToViewContributors).subscribe(
+      (responseData)=>{
+        this.contributors = responseData.post
+      }
+    );
+    }
 
 
 
@@ -63,6 +78,11 @@ export class SuperAdminPageComponent implements OnInit {
   viewBook(bookId:string){
     localStorage.setItem('displaybookId',bookId)
     this.router.navigate(['superAdminBook'])
+  }
+
+  viewUserHistory(userId:string){
+    localStorage.setItem('userId',userId)
+    this.router.navigate(['superAdminReadingHistory'])
   }
 
   logout(){
