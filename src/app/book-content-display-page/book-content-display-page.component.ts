@@ -12,14 +12,17 @@ import { HttpClient } from '@angular/common/http';
 export class BookContentDisplayPageComponent implements OnInit,OnDestroy {
 
   displayBookId:string;
+  userId:string;
   paragraphs:paragraph[] = [];
   private paragraphSub:Subscription;
   urlToIncrementViewCount:string = 'http://localhost:3000/api/updateViewCount';
+  urlToAddHistory:string = 'http://localhost:3000/api/addBookToHistory';
 
   constructor(public paragraphServices:ParagraphService,private http:HttpClient) { }
 
   ngOnInit(): void {
     this.displayBookId = localStorage.getItem('displaybookId')
+    this.userId = localStorage.getItem('userId')
     const sendingData = {
       bookId:this.displayBookId
     }
@@ -30,6 +33,11 @@ export class BookContentDisplayPageComponent implements OnInit,OnDestroy {
         this.paragraphs = paragraphs
       }
     );
+    const newSendingData = {
+      userId:this.userId+"-history",
+      bookId:this.displayBookId
+    }
+    this.http.post(this.urlToAddHistory,newSendingData).subscribe();
   }
   ngOnDestroy(){
     this.paragraphSub.unsubscribe()
