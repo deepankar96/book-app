@@ -16,6 +16,7 @@ export class MasterHomePageComponent implements OnInit {
       this.router.navigate(['userLogin'])
     }
     localStorage.removeItem("bookLanguage")
+    localStorage.removeItem("newUser")
   }
 
   logoutUser(){

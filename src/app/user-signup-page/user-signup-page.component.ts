@@ -18,6 +18,7 @@ export class UserSignupPageComponent implements OnInit {
     if(localStorage.getItem('userId')){
       this.router.navigate([''])
     }
+    localStorage.clear()
   }
 
   onSignupUser(postForm:NgForm){
@@ -33,6 +34,7 @@ export class UserSignupPageComponent implements OnInit {
     this.http.post<{message:string,userId:string}>(this.urlToAddUser,sendingData).subscribe(
       (responseData) =>{
         if(responseData.message == 'success'){
+          localStorage.setItem('newUser',userid)
           const newSendingData = {
             userId:responseData.userId
           }
