@@ -12,6 +12,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SuperAdminPageComponent implements OnInit {
   booksForSuperAdmin:book[] = [];
+  booksForSuperAdminApproved:book[] = [];
+  booksForSuperAdminWaiting:book[] = [];
+  booksForSuperAdminRejected:book[] = [];
   private bookSuperAdminSub:Subscription;
   urlToUpdateStatus:string = 'http://localhost:3000/api/updateStatus';
 
@@ -26,6 +29,7 @@ export class SuperAdminPageComponent implements OnInit {
       }
     );
   }
+
 
 
   approveBook(bookIdSuperAdmin:string){

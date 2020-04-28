@@ -2,30 +2,91 @@
     <span class="spacer"></span>
     <button mat-flat-button color='primary' (click)="logout()">Logout</button>
 </mat-toolbar>
-<mat-card>
-    <mat-card-title>
-        <h2 style="text-align: center;">All Books</h2>
-    </mat-card-title>
-    <mat-accordion style="padding: 2%;">
-        <mat-expansion-panel *ngFor="let book of booksForSuperAdmin">
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    BookName:  {{book.bookName}}
-                </mat-panel-title>
-                <mat-panel-description>
-                    BookID:  {{book.bookId}} || Contributor:{{book.contributorId}}
-                </mat-panel-description>
-            </mat-expansion-panel-header>
-            <br>
-        <p><img src="http://localhost:3000/BookCoverImages/{{book.coverImage}}"></p>
-        <p>BookLanguage:  {{book.bookLanguage}}</p>
-        <p>Views:{{book.viewCount}}</p>
-        <p>Book Status:{{book.status}}</p>
-        <mat-action-row>
-            <button mat-raised-button color='primary' *ngIf="book.status!='rejected'" (click)="viewBook(book.bookId)">View Book</button>
-            <button mat-raised-button color='accent' *ngIf="book.status=='waiting'" (click)="approveBook(book.bookId)">Approve Book</button>
-            <button mat-raised-button color='warn' *ngIf="book.status=='waiting'" (click)="rejectBook(book.bookId)">Reject Book</button>
-          </mat-action-row>
-        </mat-expansion-panel>        
-    </mat-accordion>
-</mat-card>
+<mat-grid-list cols="2" rowHeight="4:1">
+    <mat-grid-tile>
+        <button mat-raised-button color="primary" >User List</button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-raised-button color="primary" >contributor List</button>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-tab-group>
+    <mat-tab label="Approved Books">
+        <mat-card *ngFor="let book of booksForSuperAdmin">
+            <mat-accordion style="padding: 2%;">
+                <mat-expansion-panel *ngIf="book.status == 'approved'">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            BookName:  {{book.bookName}}
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            BookID:  {{book.bookId}} || Contributor:{{book.contributorId}}
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <br>
+                <p><img src="http://localhost:3000/BookCoverImages/{{book.coverImage}}"></p>
+                <p>BookLanguage:  {{book.bookLanguage}}</p>
+                <p>Views:{{book.viewCount}}</p>
+                <p>Book Status:{{book.status}}</p>
+                <mat-action-row>
+                    <button mat-raised-button color='primary' *ngIf="book.status!='rejected'" (click)="viewBook(book.bookId)">View Book</button>
+                    <button mat-raised-button color='accent' *ngIf="book.status=='waiting'" (click)="approveBook(book.bookId)">Approve Book</button>
+                    <button mat-raised-button color='warn' *ngIf="book.status=='waiting'" (click)="rejectBook(book.bookId)">Reject Book</button>
+                  </mat-action-row>
+                </mat-expansion-panel>        
+            </mat-accordion>
+        </mat-card>
+    </mat-tab>
+    <mat-tab label="Waiting Books">
+        <mat-card *ngFor="let book of booksForSuperAdmin">
+            <mat-accordion style="padding: 2%;">
+                <mat-expansion-panel *ngIf="book.status == 'waiting'">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            BookName:  {{book.bookName}}
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            BookID:  {{book.bookId}} || Contributor:{{book.contributorId}}
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <br>
+                <p><img src="http://localhost:3000/BookCoverImages/{{book.coverImage}}"></p>
+                <p>BookLanguage:  {{book.bookLanguage}}</p>
+                <p>Views:{{book.viewCount}}</p>
+                <p>Book Status:{{book.status}}</p>
+                <mat-action-row>
+                    <button mat-raised-button color='primary' *ngIf="book.status!='rejected'" (click)="viewBook(book.bookId)">View Book</button>
+                    <button mat-raised-button color='accent' *ngIf="book.status=='waiting'" (click)="approveBook(book.bookId)">Approve Book</button>
+                    <button mat-raised-button color='warn' *ngIf="book.status=='waiting'" (click)="rejectBook(book.bookId)">Reject Book</button>
+                  </mat-action-row>
+                </mat-expansion-panel>        
+            </mat-accordion>
+        </mat-card>
+    </mat-tab>
+    <mat-tab label="Rejected Books">
+        <mat-card *ngFor="let book of booksForSuperAdmin">
+            <mat-accordion style="padding: 2%;">
+                <mat-expansion-panel *ngIf="book.status == 'rejected'">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                            BookName:  {{book.bookName}}
+                        </mat-panel-title>
+                        <mat-panel-description>
+                            BookID:  {{book.bookId}} || Contributor:{{book.contributorId}}
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+                    <br>
+                <p><img src="http://localhost:3000/BookCoverImages/{{book.coverImage}}"></p>
+                <p>BookLanguage:  {{book.bookLanguage}}</p>
+                <p>Views:{{book.viewCount}}</p>
+                <p>Book Status:{{book.status}}</p>
+                <mat-action-row>
+                    <button mat-raised-button color='primary' *ngIf="book.status!='rejected'" (click)="viewBook(book.bookId)">View Book</button>
+                    <button mat-raised-button color='accent' *ngIf="book.status=='waiting'" (click)="approveBook(book.bookId)">Approve Book</button>
+                    <button mat-raised-button color='warn' *ngIf="book.status=='waiting'" (click)="rejectBook(book.bookId)">Reject Book</button>
+                  </mat-action-row>
+                </mat-expansion-panel>        
+            </mat-accordion>
+        </mat-card>
+    </mat-tab>
+  </mat-tab-group>

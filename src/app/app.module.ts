@@ -16,6 +16,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatSelectModule} from '@angular/material/select';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 
@@ -72,6 +73,7 @@ import { UserReadingHistoryPageComponent } from './user-reading-history-page/use
     MatGridListModule,
     MatDividerModule,
     MatSelectModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
