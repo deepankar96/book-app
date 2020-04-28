@@ -36,4 +36,8 @@ export class MasterHomePageComponent implements OnInit {
     this.router.navigate(['bookDisplay'])
   }
 
+  routeToReadingHistory(){
+    this.router.navigate(['userReadingHistory'])
+  }
+
 }
