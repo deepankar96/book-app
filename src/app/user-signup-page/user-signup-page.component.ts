@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserSignupPageComponent implements OnInit {
   urlToAddUser:string = 'http://localhost:3000/api/signupUser';
+  urlToAddHistory:string = 'http://localhost:3000/api/createHistoryTableForUser';
 
   constructor(private router:Router,private http:HttpClient) { }
 
@@ -29,11 +30,20 @@ export class UserSignupPageComponent implements OnInit {
       userName:postForm.value.userName,
       userPassword:postForm.value.userPassword,
     }
-    this.http.post<{message:string,userkId:string}>(this.urlToAddUser,sendingData).subscribe(
+    this.http.post<{message:string,userId:string}>(this.urlToAddUser,sendingData).subscribe(
       (responseData) =>{
         if(responseData.message == 'success'){
-          this.router.navigate(['userLogin'])
-        }
+          const newSendingData = {
+            userId:responseData.userId
+          }
+          this.http.post<{message:string}>(this.urlToAddHistory,newSendingData).subscribe(
+            (newresponseData)=>{
+              if(newresponseData.message == 'success'){
+                this.router.navigate(['userLogin'])
+              }
+            }
+          );
+          }
       }
     );
   }
