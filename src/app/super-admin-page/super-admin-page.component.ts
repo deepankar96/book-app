@@ -91,6 +91,9 @@ export class SuperAdminPageComponent implements OnInit {
   }
 
   addContributor(postForm:NgForm){
+    if(postForm.invalid){
+      return
+    }
     var currentDate = new Date()
     var minute = currentDate.getMinutes().toString()
     var second = currentDate.getSeconds().toString()
