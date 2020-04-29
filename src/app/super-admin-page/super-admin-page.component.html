@@ -4,16 +4,16 @@
 </mat-toolbar>
 <mat-grid-list cols="4" rowHeight="4:1">
     <mat-grid-tile>
-        <button mat-raised-button color="primary" (click)="displayBooks=true;displayContributorList=false;displayUserList=false">Book List</button>
+        <button mat-raised-button color="primary" (click)="displayBooks=true;displayContributorList=false;displayUserList=false;displayAddContributor=false">Book List</button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-raised-button color="primary" (click)="displayBooks=false;displayContributorList=false;displayUserList=true">User List</button>
+        <button mat-raised-button color="primary" (click)="displayBooks=false;displayContributorList=false;displayUserList=true;displayAddContributor=false">User List</button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-raised-button color="primary" (click)="displayBooks=false;displayContributorList=true;displayUserList=false">Contributor List</button>
+        <button mat-raised-button color="primary" (click)="displayBooks=false;displayContributorList=true;displayUserList=false;displayAddContributor=false">Contributor List</button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-raised-button color="primary" >Add Contributor</button>
+        <button mat-raised-button color="primary" (click)="displayBooks=false;displayContributorList=false;displayUserList=false;displayAddContributor=true">Add Contributor</button>
     </mat-grid-tile>
   </mat-grid-list>
   <mat-tab-group *ngIf="displayBooks">
@@ -129,4 +129,18 @@
             </mat-action-row>
         </mat-expansion-panel>
     </mat-accordion>
+  </mat-card>
+  <mat-card style="padding-left: 2%; text-align: center;">
+    <br>
+<form  (submit)="addContributor(postForm)" *ngIf="displayAddContributor" #postForm="ngForm">
+    <mat-form-field>
+        <input matInput type="text" name="contributorId" placeholder="Contributor Id" style="text-transform: uppercase;" required ngModel> 
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput type="password" name="contributorPassword" placeholder="Password" required ngModel> 
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" type="submit">Add Contributor</button> 
+</form>
   </mat-card>

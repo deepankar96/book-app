@@ -4,6 +4,7 @@ import { book } from 'src/model';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-super-admin-page',
@@ -21,6 +22,7 @@ export class SuperAdminPageComponent implements OnInit {
   displayBooks:boolean = true;
   displayUserList:boolean = false;
   displayContributorList:boolean = false;
+  displayAddContributor:boolean = false;
 
 
   constructor(public bookServiceForSuperAdmin:BookServiceForSuperAdmin,private router:Router,private http:HttpClient) { }
@@ -83,6 +85,10 @@ export class SuperAdminPageComponent implements OnInit {
   viewUserHistory(userId:string){
     localStorage.setItem('userId',userId)
     this.router.navigate(['superAdminReadingHistory'])
+  }
+
+  addContributor(postForm:NgForm){
+    console.log(postForm.value)
   }
 
   logout(){
