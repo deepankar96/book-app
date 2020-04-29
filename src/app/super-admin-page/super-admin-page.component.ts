@@ -19,10 +19,13 @@ export class SuperAdminPageComponent implements OnInit {
   urlToUpdateStatus:string = 'http://localhost:3000/api/updateStatus';
   urlToViewUsers:string = 'http://localhost:3000/api/viewUsers';
   urlToViewContributors:string = 'http://localhost:3000/api/viewContributors';
+  urlToAddContributors:string = 'http://localhost:3000/api/addContributor';
   displayBooks:boolean = true;
   displayUserList:boolean = false;
   displayContributorList:boolean = false;
   displayAddContributor:boolean = false;
+  displayNewContributorId:boolean = false;
+  contributorIdDisplayed:string;
 
 
   constructor(public bookServiceForSuperAdmin:BookServiceForSuperAdmin,private router:Router,private http:HttpClient) { }
@@ -88,7 +91,22 @@ export class SuperAdminPageComponent implements OnInit {
   }
 
   addContributor(postForm:NgForm){
-    console.log(postForm.value)
+    var currentDate = new Date()
+    var minute = currentDate.getMinutes().toString()
+    var second = currentDate.getSeconds().toString()
+    const contributorId = postForm.value.contributorId.toString().toUpperCase() + minute + second;
+    const sendingData = {
+      contributorId:contributorId,
+      contributorPassword:postForm.value.contributorPassword
+    }
+    this.http.post<{message:string,contributorId:string}>(this.urlToAddContributors,sendingData).subscribe(
+      (responseData)=>{
+        if(responseData.message == 'success'){
+          this.contributorIdDisplayed = responseData.contributorId;
+          this.displayNewContributorId = true;
+        }
+      }
+      );
   }
 
   logout(){
