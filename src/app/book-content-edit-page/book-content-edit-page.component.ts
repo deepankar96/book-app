@@ -16,7 +16,7 @@ export class BookContentEditPageComponent implements OnInit,OnDestroy{
   displayParagraphBookForm:boolean = false;
   displayParagrapListForm:boolean = false;
   paragraphAudio:File;
-  urlToAddParagraph:string = 'http://localhost:3000/api/addParagraph';
+  urlToAddParagraph:string = 'http://talkbook.in:3000/api/addParagraph';
   disableSubmitButton:boolean = true;
   paragraphs:paragraph[] = [];
   private paragraphSub:Subscription;

@@ -12,7 +12,7 @@ export class BookService{
     numberofBooks:number;
 
     contributorId:string;
-    getBooksUrl = 'http://localhost:3000/api/getBooksForContributor';
+    getBooksUrl = 'http://talkbook.in:3000/api/getBooksForContributor';
 
     constructor(private http:HttpClient,public contributorLoginService:ContributorLoginService){
     }

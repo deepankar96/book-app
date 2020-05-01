@@ -13,7 +13,7 @@ export class BookDisplaySuperAdminComponent implements OnInit,OnDestroy {
   displayBookId:string;
   paragraphs:paragraph[] = [];
   private paragraphSub:Subscription;
-  urlToIncrementViewCount:string = 'http://localhost:3000/api/updateViewCount';
+  urlToIncrementViewCount:string = 'http://talkbook.in:3000/api/updateViewCount';
 
   constructor(public paragraphServices:ParagraphService,private http:HttpClient) { }
 

@@ -12,7 +12,7 @@ export class ParagraphService{
     numberofBooks:number;
 
     contributorId:string;
-    getBooksUrl = 'http://localhost:3000/api/getParagraphsForBooks';
+    getBooksUrl = 'http://talkbook.in:3000/api/getParagraphsForBooks';
 
     constructor(private http:HttpClient,public contributorLoginService:ContributorLoginService){
     }

@@ -15,8 +15,8 @@ export class BookContentDisplayPageComponent implements OnInit,OnDestroy {
   userId:string;
   paragraphs:paragraph[] = [];
   private paragraphSub:Subscription;
-  urlToIncrementViewCount:string = 'http://localhost:3000/api/updateViewCount';
-  urlToAddHistory:string = 'http://localhost:3000/api/addBookToHistory';
+  urlToIncrementViewCount:string = 'http://talkbook.in:3000/api/updateViewCount';
+  urlToAddHistory:string = 'http://talkbook.in:3000/api/addBookToHistory';
 
   constructor(public paragraphServices:ParagraphService,private http:HttpClient) { }
 
