@@ -34,11 +34,18 @@
         <div>
             <button mat-stroked-button type="button" (click)="filePicker.click()">Cover Image</button><br>
             <input type="file" #filePicker (change)="onAddImage($event)">
-            {{coverImageFile.name}}
+            <mat-card *ngIf="coverImageFile">
+                {{coverImageFile.name}}
+            </mat-card>
         </div>
         <br>
         <button mat-raised-button color="primary" type="submit">Submit</button><br><br>
-        <button mat-raised-button color="primary" type="button"(click)="displayAddBookForm=false">Discard</button>
+        <button mat-raised-button color="primary" type="button"(click)="discardDialogue=true">Discard</button>
+        <div *ngIf='discardDialogue'>
+        <p>Confirm to Discard?</p>
+        <button mat-raised-button color="primary" type="button"(click)="displayAddBookForm=false">Yes</button>
+        <button mat-raised-button color="primary" type="button"(click)="discardDialogue=false">No</button>
+    </div>
     </form>
 </mat-card>
 <mat-card *ngIf="displayListBookContents">

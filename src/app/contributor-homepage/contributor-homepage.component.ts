@@ -17,6 +17,7 @@ export class ContributorHomepageComponent implements OnInit,OnDestroy {
   contributorToken:string='';
   displayAddBookForm:boolean = false;
   displayListBookContents:boolean = false;
+  discardDialogue:boolean = false;
   bookId:string;
   urlToAddBook:string = 'http://talkbook.in:3000/api/addbook';
   urlToCreateTable:string = 'http://talkbook.in:3000/api/createDataTableForBook';

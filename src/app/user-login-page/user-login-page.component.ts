@@ -19,6 +19,9 @@ export class UserLoginPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.userIdCreated = localStorage.getItem('newUser')
+    if(localStorage.getItem('userId')){
+      this.router.navigate([''])
+    }
   }
 
   loginToUser(postForm:NgForm){
