@@ -41,6 +41,7 @@ import { SuperAdminLoginPageComponent } from './super-admin-login-page/super-adm
 import { BookDisplaySuperAdminComponent } from './book-display-super-admin/book-display-super-admin.component';
 import { UserReadingHistoryPageComponent } from './user-reading-history-page/user-reading-history-page.component';
 import { SuperAdminUserHistoryPageComponent } from './super-admin-user-history-page/super-admin-user-history-page.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,6 +58,7 @@ import { SuperAdminUserHistoryPageComponent } from './super-admin-user-history-p
     BookDisplaySuperAdminComponent,
     UserReadingHistoryPageComponent,
     SuperAdminUserHistoryPageComponent,
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,
