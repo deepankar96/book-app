@@ -13,7 +13,7 @@ export class MasterHomePageComponent implements OnInit {
 
   ngOnInit(): void {
     if(!this.userLoginService.getUserId()){
-      this.router.navigate(['userLogin'])
+      this.router.navigate(['landingPage'])
     }
     localStorage.removeItem("bookLanguage")
     localStorage.removeItem("newUser")
