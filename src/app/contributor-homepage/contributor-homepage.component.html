@@ -34,6 +34,7 @@
         <div>
             <button mat-stroked-button type="button" (click)="filePicker.click()">Cover Image</button><br>
             <input type="file" #filePicker (change)="onAddImage($event)">
+            {{coverImageFile.name}}
         </div>
         <br>
         <button mat-raised-button color="primary" type="submit">Submit</button><br><br>
