@@ -22,6 +22,13 @@
         <button mat-raised-button color="primary">Liked Books</button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-raised-button (click)="logoutUser()" color="primary">Logout</button>
+        <button mat-raised-button (click)="displayLogoutCommand=true" color="primary">Logout</button>
     </mat-grid-tile>
   </mat-grid-list>
+  <mat-card  style="text-align: center;" *ngIf='displayLogoutCommand'>
+      <p>
+        Confirm Logout
+      </p>
+      <button mat-raised-button (click)="logoutUser()" color="primary">Yes</button>
+      <button mat-raised-button (click)="displayLogoutCommand=false" color="primary">No</button>
+  </mat-card>
