@@ -1,1 +1,18 @@
-<p>super-admin-languages works!</p>
+<mat-toolbar color='primary'>Languages</mat-toolbar>
+<mat-card style="margin: auto;text-align: center;">
+        <form (submit)="addLanguage(postForm)"  #postForm="ngForm">
+            <h3>Add Language</h3>
+            <mat-form-field>
+                <input matInput name="languageName" placeholder="Language Name" ngModel required>
+            </mat-form-field>
+            <br>
+          <button mat-raised-button type="submit" color="primary">
+            Add Language
+        </button>
+        </form>
+    </mat-card>
+    <mat-card style="margin: auto;text-align: center;">
+        <button mat-raised-button color="primary" (click)="displayLanguageList=true">
+            List Languages
+        </button>
+    </mat-card>
