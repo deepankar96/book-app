@@ -3,14 +3,19 @@
     <span class="spacer"></span>
     Content for : {{bookId}}
 </mat-toolbar>
-<mat-grid-list cols="2" rowHeight="4:1">
+<mat-grid-list cols="3" rowHeight="4:1">
     <mat-grid-tile>
-        <button mat-raised-button color="primary" (click)="displayParagraphBookForm=true; displayParagrapListForm=false">
+        <button mat-raised-button color="primary" (click)="displayAddGenre=true;displayParagraphBookForm=false; displayParagrapListForm=false">
+            Add Genre
+        </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-raised-button color="primary" (click)="displayParagraphBookForm=true; displayParagrapListForm=false;displayAddGenre=false">
             Add Paragraphs
         </button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-raised-button color="primary" (click)="displayParagrapListForm=true;displayParagraphBookForm=false">
+        <button mat-raised-button color="primary" (click)="displayParagrapListForm=true;displayParagraphBookForm=false;displayAddGenre=false">
             List Paragraphs
         </button>
     </mat-grid-tile>
@@ -58,4 +63,9 @@
             </p>
         </mat-expansion-panel>        
     </mat-accordion>
+</mat-card>
+<mat-card *ngIf='displayAddGenre'>
+    <form>
+        <button mat-raised-button type="submit">Add Genre</button>
+    </form>
 </mat-card>

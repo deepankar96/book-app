@@ -33,6 +33,7 @@ export class ContributorHomepageComponent implements OnInit,OnDestroy {
       this.router.navigate(['contributorLogin'])
     }
     localStorage.removeItem("bookIdForContributor")
+    localStorage.removeItem("bookLanguageForContributor")
     this.contributorId=this.contributorLoginService.getContributorId()
     this.contributorToken=this.contributorLoginService.getToken()
     this.bookServices.getBooks(this.contributorId)
@@ -111,8 +112,9 @@ export class ContributorHomepageComponent implements OnInit,OnDestroy {
   }
 
 
-  addBookToLocalStorage(bookId){
+  addBookToLocalStorage(bookId,bookLanguage){
     localStorage.setItem("bookIdForContributor",bookId)
+    localStorage.setItem("bookLanguageForContributor",bookLanguage)
     this.router.navigate(['contributorBookDisplay'])
   }
 

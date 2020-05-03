@@ -13,8 +13,10 @@ import { Subscription } from 'rxjs';
 })
 export class BookContentEditPageComponent implements OnInit,OnDestroy{
   bookId:string;
+  languaugeForContributor:string;
   displayParagraphBookForm:boolean = false;
   displayParagrapListForm:boolean = false;
+  displayAddGenre:boolean = false;
   paragraphAudio:File;
   urlToAddParagraph:string = 'http://localhost:3000/api/addParagraph';
   disableSubmitButton:boolean = true;
@@ -27,6 +29,8 @@ export class BookContentEditPageComponent implements OnInit,OnDestroy{
 
   ngOnInit(): void {
     this.bookId = localStorage.getItem("bookIdForContributor")
+    this.languaugeForContributor = localStorage.getItem("bookLanguageForContributor")
+    
     if(!this.bookId){
       this.router.navigate(['contributorHomepage'])
     }

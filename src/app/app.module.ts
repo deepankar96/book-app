@@ -17,7 +17,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTabsModule} from '@angular/material/tabs';
-
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 
@@ -43,6 +43,7 @@ import { UserReadingHistoryPageComponent } from './user-reading-history-page/use
 import { SuperAdminUserHistoryPageComponent } from './super-admin-user-history-page/super-admin-user-history-page.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SuperAdminLanguagesComponent } from './super-admin-languages/super-admin-languages.component';
+import { AddGenreSuperadminComponent } from './add-genre-superadmin/add-genre-superadmin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +62,7 @@ import { SuperAdminLanguagesComponent } from './super-admin-languages/super-admi
     SuperAdminUserHistoryPageComponent,
     LandingPageComponent,
     SuperAdminLanguagesComponent,
+    AddGenreSuperadminComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,6 +82,7 @@ import { SuperAdminLanguagesComponent } from './super-admin-languages/super-admi
     MatDividerModule,
     MatSelectModule,
     MatTabsModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

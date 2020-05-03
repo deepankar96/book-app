@@ -63,7 +63,7 @@
         <p>Views:{{book.viewCount}}</p>
         <p>Book Status:{{book.status}}</p>
         <mat-action-row>
-            <button mat-raised-button (click)="addBookToLocalStorage(book.bookId)">View Book</button>
+            <button mat-raised-button (click)="addBookToLocalStorage(book.bookId,book.bookLanguage)">View Book</button>
           </mat-action-row>
         </mat-expansion-panel>        
     </mat-accordion>

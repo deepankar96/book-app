@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-super-admin-languages',
@@ -14,9 +15,10 @@ export class SuperAdminLanguagesComponent implements OnInit {
   urlToGetLanguageTable = 'http://localhost:3000/api/getLanguages'
   languages = []
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private router:Router) { }
 
   ngOnInit(): void {
+    localStorage.removeItem('language')
     this.http.get<{post}>(this.urlToGetLanguageTable).subscribe(
       (responseData)=>{
         this.languages = responseData.post
@@ -44,5 +46,10 @@ export class SuperAdminLanguagesComponent implements OnInit {
         }
       }
     );
+  }
+
+  routeToaddGenre(language:string){
+    localStorage.setItem('language',language)
+    this.router.navigate(['superAdminGenre'])
   }
 }
