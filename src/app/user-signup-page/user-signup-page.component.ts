@@ -35,6 +35,7 @@ export class UserSignupPageComponent implements OnInit {
       (responseData) =>{
         if(responseData.message == 'success'){
           localStorage.setItem('newUser',userid)
+          alert("User created With UserID:"+userid.toUpperCase())
           const newSendingData = {
             userId:responseData.userId
           }
