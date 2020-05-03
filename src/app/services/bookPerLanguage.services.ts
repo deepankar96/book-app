@@ -12,7 +12,7 @@ export class BookServicePerLanguage{
     numberofBooks:number;
 
     contributorId:string;
-    getBooksUrl = 'http://talkbook.in:3000/api/getBooksPerLanguage';
+    getBooksUrl = 'http://localhost:3000/api/getBooksPerLanguage';
 
     constructor(private http:HttpClient,public contributorLoginService:ContributorLoginService){
     }

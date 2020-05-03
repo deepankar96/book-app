@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class MasterHomePageComponent implements OnInit {
 
   displayLogoutCommand:boolean = false;
+  language = [];
 
   constructor(public userLoginService:UserLoginService,private router:Router) { }
 

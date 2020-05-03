@@ -19,8 +19,8 @@ export class ContributorHomepageComponent implements OnInit,OnDestroy {
   displayListBookContents:boolean = false;
   discardDialogue:boolean = false;
   bookId:string;
-  urlToAddBook:string = 'http://talkbook.in:3000/api/addbook';
-  urlToCreateTable:string = 'http://talkbook.in:3000/api/createDataTableForBook';
+  urlToAddBook:string = 'http://localhost:3000/api/addbook';
+  urlToCreateTable:string = 'http://localhost:3000/api/createDataTableForBook';
   books:book[] = [];
   private bookSub:Subscription;
   coverImageFile:File;

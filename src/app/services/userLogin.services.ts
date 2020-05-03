@@ -24,7 +24,7 @@ export class UserLoginService{
     logout(){
         this.userId = null
         this.removeToken()
-        this.router.navigate(['userLogin'])
+        this.router.navigate(['landingPage'])
     }
 
     private saveToken(){

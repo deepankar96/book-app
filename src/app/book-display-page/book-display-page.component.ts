@@ -16,7 +16,7 @@ export class BookDisplayPageComponent implements OnInit {
   books:book[] = [];
   displayBookContents:boolean = false;
   userId:string;
-  urlForLikedPosts:string = 'http://talkbook.in:3000/api/likeBook';
+  urlForLikedPosts:string = 'http://localhost:3000/api/likeBook';
 
   constructor(public bookPerLanguageService:BookServicePerLanguage,private http:HttpClient,private router:Router) { }
 

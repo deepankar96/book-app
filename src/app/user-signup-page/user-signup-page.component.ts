@@ -9,8 +9,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./user-signup-page.component.css']
 })
 export class UserSignupPageComponent implements OnInit {
-  urlToAddUser:string = 'http://talkbook.in:3000/api/signupUser';
-  urlToAddHistory:string = 'http://talkbook.in:3000/api/createHistoryTableForUser';
+  urlToAddUser:string = 'http://localhost:3000/api/signupUser';
+  urlToAddHistory:string = 'http://localhost:3000/api/createHistoryTableForUser';
 
   constructor(private router:Router,private http:HttpClient) { }
 

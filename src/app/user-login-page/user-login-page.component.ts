@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class UserLoginPageComponent implements OnInit {
 
   errorMessage:string;
-  url:string = 'http://talkbook.in:3000/api/userLogin';
+  url:string = 'http://localhost:3000/api/userLogin';
   userIdCreated:string;
 
   constructor(private http:HttpClient,public userLoginService:UserLoginService,private router:Router) { }
