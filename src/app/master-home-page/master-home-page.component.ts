@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserLoginService } from '../services/userLogin.services';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-master-home-page',
@@ -10,9 +12,10 @@ import { Router } from '@angular/router';
 export class MasterHomePageComponent implements OnInit {
 
   displayLogoutCommand:boolean = false;
-  language = [];
+  languages = [];
+  urlToGetLanguages = 'http://localhost:3000/api/getLanguages'
 
-  constructor(public userLoginService:UserLoginService,private router:Router) { }
+  constructor(public userLoginService:UserLoginService,private router:Router,private http:HttpClient) { }
 
   ngOnInit(): void {
     if(!this.userLoginService.getUserId()){
@@ -20,12 +23,21 @@ export class MasterHomePageComponent implements OnInit {
     }
     localStorage.removeItem("bookLanguage")
     localStorage.removeItem("newUser")
+    this.http.get<{message:string,post:any}>(this.urlToGetLanguages).subscribe(
+      (responseData)=>{
+        this.languages = responseData.post
+      }
+    );
   }
 
   logoutUser(){
     this.userLoginService.logout()
   }
 
+  routeForLanguages(language:string){
+    localStorage.setItem("bookLanguage",language)
+    this.router.navigate(['bookDisplay'])
+  }
   routeToAssamese(){
     localStorage.setItem("bookLanguage",'assamese')
     this.router.navigate(['bookDisplay'])

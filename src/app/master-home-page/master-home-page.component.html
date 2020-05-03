@@ -1,13 +1,7 @@
 <h1 style="text-align: center;">Homepage Content</h1>
 <mat-grid-list cols="3" rowHeight="3:1">
-    <mat-grid-tile>
-        <button mat-stroked-button color="primary" (click)="routeToAssamese()">Assamese</button>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <button mat-stroked-button color="primary"(click)="routeToEnglish()">English</button>
-    </mat-grid-tile>
-    <mat-grid-tile>
-        <button mat-stroked-button color="primary"(click)="routeToBengali()">Bengali</button>
+    <mat-grid-tile *ngFor="let language of languages">
+        <button mat-stroked-button color="primary" (click)="routeForLanguages(language)">{{language.toUpperCase()}}</button>
     </mat-grid-tile>
 </mat-grid-list>
 <mat-divider></mat-divider>
