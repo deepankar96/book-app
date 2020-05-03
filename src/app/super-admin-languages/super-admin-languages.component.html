@@ -12,7 +12,19 @@
         </form>
     </mat-card>
     <mat-card style="margin: auto;text-align: center;">
-        <button mat-raised-button color="primary" (click)="displayLanguageList=true">
+        <button mat-raised-button color="primary" (click)="toggleLanguageList()">
             List Languages
         </button>
     </mat-card>
+<mat-card style="margin: auto;text-align: center;" *ngIf='displayLanguageList'>
+    <mat-accordion>
+        <mat-expansion-panel *ngFor="let language of languages">
+            <mat-expansion-panel-header>
+                {{language}}
+            </mat-expansion-panel-header>
+            <mat-action-row>
+                <button mat-raised-button>Add Genre/types</button>
+            </mat-action-row>
+        </mat-expansion-panel>
+    </mat-accordion>
+</mat-card>
