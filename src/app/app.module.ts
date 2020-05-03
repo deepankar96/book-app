@@ -42,6 +42,7 @@ import { BookDisplaySuperAdminComponent } from './book-display-super-admin/book-
 import { UserReadingHistoryPageComponent } from './user-reading-history-page/user-reading-history-page.component';
 import { SuperAdminUserHistoryPageComponent } from './super-admin-user-history-page/super-admin-user-history-page.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SuperAdminLanguagesComponent } from './super-admin-languages/super-admin-languages.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +60,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     UserReadingHistoryPageComponent,
     SuperAdminUserHistoryPageComponent,
     LandingPageComponent,
+    SuperAdminLanguagesComponent,
   ],
   imports: [
     BrowserModule,

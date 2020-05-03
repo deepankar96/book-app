@@ -15,6 +15,7 @@ import { BookDisplaySuperAdminComponent } from './book-display-super-admin/book-
 import { UserReadingHistoryPageComponent } from './user-reading-history-page/user-reading-history-page.component';
 import { SuperAdminUserHistoryPageComponent } from './super-admin-user-history-page/super-admin-user-history-page.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SuperAdminLanguagesComponent } from './super-admin-languages/super-admin-languages.component';
 
 
 const routes: Routes = [
@@ -33,7 +34,7 @@ const routes: Routes = [
   {path:'userReadingHistory', component:UserReadingHistoryPageComponent},
   {path:'superAdminReadingHistory', component:SuperAdminUserHistoryPageComponent},
   {path:'landingPage', component:LandingPageComponent},
-
+  {path:'superAdminLanguage', component:SuperAdminLanguagesComponent},
 ];
 
 @NgModule({

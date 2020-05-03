@@ -22,11 +22,15 @@ export class UserLoginPageComponent implements OnInit {
     if(localStorage.getItem('userId')){
       this.router.navigate([''])
     }
+    else{
+      localStorage.clear()
+    }
   }
 
   loginToUser(postForm:NgForm){
     if(postForm.value.userId =='superadmin'){
       if(postForm.value.userPassword == 'pass'){
+        localStorage.setItem('su','yes')
         this.router.navigate(['superAdminPage'])
         return
       }

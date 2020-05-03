@@ -31,11 +31,13 @@ export class SuperAdminPageComponent implements OnInit {
   constructor(public bookServiceForSuperAdmin:BookServiceForSuperAdmin,private router:Router,private http:HttpClient) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('su')!= 'yes'){
+      this.router.navigate(['landingPage'])
+    }
     this.bookServiceForSuperAdmin.getBooksForSuperAdmin()
     this.bookSuperAdminSub = this.bookServiceForSuperAdmin.getBooksForSuperAdminListstner().subscribe(
       (books:book[])=>{
-        this.booksForSuperAdmin = books
-        localStorage.clear()
+        this.booksForSuperAdmin = books        
       }
     );
     this.http.get<{message:string,post}>(this.urlToViewUsers).subscribe(
