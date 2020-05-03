@@ -47,8 +47,22 @@ export class ContributorHomepageComponent implements OnInit,OnDestroy {
     this.bookSub.unsubscribe();
   }
 
+  discardButton(){
+    if(window.confirm('Confirm to Discard?')){
+      this.displayAddBookForm = false
+    }
+    else{
+
+    }
+  }
+
   logout(){
-    this.contributorLoginService.logoutOfContributor()
+    if(window.confirm('Confirm Logout?')){
+      this.contributorLoginService.logoutOfContributor()
+    }
+    else{
+
+    }
   }
 
   addBook(postForm:NgForm){

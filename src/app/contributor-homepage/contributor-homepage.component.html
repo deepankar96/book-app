@@ -40,12 +40,7 @@
         </div>
         <br>
         <button mat-raised-button color="primary" type="submit">Submit</button><br><br>
-        <button mat-raised-button color="primary" type="button"(click)="discardDialogue=true">Discard</button>
-        <div *ngIf='discardDialogue'>
-        <p>Confirm to Discard?</p>
-        <button mat-raised-button color="primary" type="button"(click)="displayAddBookForm=false">Yes</button>
-        <button mat-raised-button color="primary" type="button"(click)="discardDialogue=false">No</button>
-    </div>
+        <button mat-raised-button color="primary" type="button"(click)="discardButton()">Discard</button>
     </form>
 </mat-card>
 <mat-card *ngIf="displayListBookContents">

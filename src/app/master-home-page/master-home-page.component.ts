@@ -31,7 +31,12 @@ export class MasterHomePageComponent implements OnInit {
   }
 
   logoutUser(){
-    this.userLoginService.logout()
+    if(window.confirm('Confirm Logout?')){
+      this.userLoginService.logout()
+    }
+    else{
+
+    }
   }
 
   routeForLanguages(language:string){

@@ -68,6 +68,15 @@ export class BookContentEditPageComponent implements OnInit,OnDestroy{
     }
   }
 
+  discardButton(){
+    if(window.confirm('Confirm to Discard?')){
+      this.displayParagraphBookForm = false
+    }
+    else{
+
+    }
+  }
+
   ngOnDestroy(){
     this.paragraphSub.unsubscribe()
   }
