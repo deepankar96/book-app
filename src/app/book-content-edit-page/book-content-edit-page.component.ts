@@ -17,11 +17,16 @@ export class BookContentEditPageComponent implements OnInit,OnDestroy{
   displayParagraphBookForm:boolean = false;
   displayParagrapListForm:boolean = false;
   displayAddGenre:boolean = false;
+  displayAddType:boolean = false;
   paragraphAudio:File;
-  urlToAddParagraph:string = 'http://localhost:3000/api/addParagraph';
+  urlToAddParagraph:string = 'http://talkbook.in:3000/api/addParagraph';
   disableSubmitButton:boolean = true;
   paragraphs:paragraph[] = [];
   private paragraphSub:Subscription;
+  genres = []
+  types = []
+  urlToGetGenre:string = 'http://talkbook.in:3000/api/getGenres'
+  urlToGetType:string = 'http://talkbook.in:3000/api/getTypes'
 
   constructor(private http:HttpClient,private router:Router,public paragraphServices:ParagraphService) { 
     this.paragraphs = []
@@ -38,6 +43,16 @@ export class BookContentEditPageComponent implements OnInit,OnDestroy{
     this.paragraphSub = this.paragraphServices.getparagraphsListstner().subscribe(
       (paragraphs:paragraph[])=>{
         this.paragraphs = paragraphs
+      }
+    );
+    this.http.get<{post}>(this.urlToGetGenre).subscribe(
+      (responseData)=>{
+        this.genres = responseData.post
+      }
+    );
+    this.http.get<{post}>(this.urlToGetType).subscribe(
+      (responseData)=>{
+        this.types = responseData.post
       }
     );
   }
@@ -79,6 +94,10 @@ export class BookContentEditPageComponent implements OnInit,OnDestroy{
     else{
 
     }
+  }
+
+  addGenre(postform1:NgForm){
+    console.log(postform1.value)
   }
 
   ngOnDestroy(){

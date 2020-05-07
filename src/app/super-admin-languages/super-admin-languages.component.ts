@@ -10,9 +10,9 @@ import { Router } from '@angular/router';
 })
 export class SuperAdminLanguagesComponent implements OnInit {
   displayLanguageList:boolean = false;
-  urlToAddLanguage = 'http://localhost:3000/api/addLanguage'
-  urlToAddLanguageTable = 'http://localhost:3000/api/createDataTableForLanguage'
-  urlToGetLanguageTable = 'http://localhost:3000/api/getLanguages'
+  urlToAddLanguage = 'http://talkbook.in:3000/api/addLanguage'
+  urlToAddLanguageTable = 'http://talkbook.in:3000/api/createDataTableForLanguage'
+  urlToGetLanguageTable = 'http://talkbook.in:3000/api/getLanguages'
   languages = []
 
   constructor(private http:HttpClient,private router:Router) { }

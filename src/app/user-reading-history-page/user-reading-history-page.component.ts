@@ -11,7 +11,7 @@ export class UserReadingHistoryPageComponent implements OnInit {
 
   userId:string;
   books = [];
-  url= 'http://localhost:3000/api/viewBookToHistory';
+  url= 'http://talkbook.in:3000/api/viewBookToHistory';
 
   constructor(private http:HttpClient,private router:Router) { }
 

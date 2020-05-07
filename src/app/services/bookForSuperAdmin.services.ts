@@ -11,7 +11,7 @@ export class BookServiceForSuperAdmin{
     numberofBooks:number;
 
     contributorId:string;
-    getBooksUrl = 'http://localhost:3000/api/getBooksForSuperAdmin';
+    getBooksUrl = 'http://talkbook.in:3000/api/getBooksForSuperAdmin';
 
     constructor(private http:HttpClient){
     }

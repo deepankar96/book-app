@@ -3,19 +3,24 @@
     <span class="spacer"></span>
     Content for : {{bookId}}
 </mat-toolbar>
-<mat-grid-list cols="3" rowHeight="4:1">
+<mat-grid-list cols="4" rowHeight="4:1">
     <mat-grid-tile>
-        <button mat-raised-button color="primary" (click)="displayAddGenre=true;displayParagraphBookForm=false; displayParagrapListForm=false">
+        <button mat-raised-button color="primary" (click)="displayAddGenre=true;displayParagraphBookForm=false; displayParagrapListForm=false;displayAddType=false">
             Add Genre
         </button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-raised-button color="primary" (click)="displayParagraphBookForm=true; displayParagrapListForm=false;displayAddGenre=false">
+        <button mat-raised-button color="primary" (click)="displayParagrapListForm=false;displayParagraphBookForm=false;displayAddGenre=false;displayAddType=true">
+            Add Type
+        </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-raised-button color="primary" (click)="displayParagraphBookForm=true; displayParagrapListForm=false;displayAddGenre=false;displayAddType=false">
             Add Paragraphs
         </button>
     </mat-grid-tile>
     <mat-grid-tile>
-        <button mat-raised-button color="primary" (click)="displayParagrapListForm=true;displayParagraphBookForm=false;displayAddGenre=false">
+        <button mat-raised-button color="primary" (click)="displayParagrapListForm=true;displayParagraphBookForm=false;displayAddGenre=false;displayAddType=false">
             List Paragraphs
         </button>
     </mat-grid-tile>
@@ -58,14 +63,58 @@
             </mat-expansion-panel-header>
             <br>
             <p><audio controls>
-                <source src="http://localhost:3000/AudioFiles/{{paragraph.paragraphLink}}">
+                <source src="http://talkbook.in:3000/AudioFiles/{{paragraph.paragraphLink}}">
               </audio>
             </p>
         </mat-expansion-panel>        
     </mat-accordion>
 </mat-card>
 <mat-card *ngIf='displayAddGenre'>
-    <form>
+    <form (submit)="addGenre(postForm1)" #postForm1="ngForm">
+        <mat-form-field>
+            <mat-label>Genre 1</mat-label>
+            <select matNativeControl name="bookGenre1" ngModel required>
+                <option value="{{genre}}" *ngFor="let genre of genres">{{genre}}</option>
+                </select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Genre 2</mat-label>
+            <select matNativeControl name="bookGenre2" ngModel required>
+                <option value="{{genre}}" *ngFor="let genre of genres">{{genre}}</option>
+                </select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Genre 3</mat-label>
+            <select matNativeControl name="bookGenre3" ngModel required>
+                <option value="{{genre}}" *ngFor="let genre of genres">{{genre}}</option>
+                </select>
+        </mat-form-field>
+        <br>
         <button mat-raised-button type="submit">Add Genre</button>
     </form>
 </mat-card>
+<mat-card *ngIf='displayAddType'>
+    <form (submit)="addGenre(postForm1)" #postForm1="ngForm">
+        <mat-form-field>
+            <mat-label>Type 1</mat-label>
+            <select matNativeControl name="bookType1" ngModel required>
+                <option value="{{type}}" *ngFor="let type of types">{{type}}</option>
+                </select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Type 2</mat-label>
+            <select matNativeControl name="bookType2" ngModel required>
+                <option value="{{type}}" *ngFor="let type of types">{{type}}</option>
+                </select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Type 3</mat-label>
+            <select matNativeControl name="bookType3" ngModel required>
+                <option value="{{type}}" *ngFor="let type of types">{{type}}</option>
+                </select>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button type="submit">Add Type</button>
+    </form>
+</mat-card>
+

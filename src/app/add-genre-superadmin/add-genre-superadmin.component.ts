@@ -11,8 +11,8 @@ export class AddGenreSuperadminComponent implements OnInit {
   language:string;
   genres = []
   types = []
-  urlToGetGenre:string = 'http://localhost:3000/api/getGenres'
-  urlToGetType:string = 'http://localhost:3000/api/getTypes'
+  urlToGetGenre:string = 'http://talkbook.in:3000/api/getGenres'
+  urlToGetType:string = 'http://talkbook.in:3000/api/getTypes'
   constructor(private http:HttpClient) { }
 
   ngOnInit(): void {

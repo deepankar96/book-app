@@ -16,10 +16,10 @@ export class SuperAdminPageComponent implements OnInit {
   users = [];
   contributors = [];
   private bookSuperAdminSub:Subscription;
-  urlToUpdateStatus:string = 'http://localhost:3000/api/updateStatus';
-  urlToViewUsers:string = 'http://localhost:3000/api/viewUsers';
-  urlToViewContributors:string = 'http://localhost:3000/api/viewContributors';
-  urlToAddContributors:string = 'http://localhost:3000/api/addContributor';
+  urlToUpdateStatus:string = 'http://talkbook.in:3000/api/updateStatus';
+  urlToViewUsers:string = 'http://talkbook.in:3000/api/viewUsers';
+  urlToViewContributors:string = 'http://talkbook.in:3000/api/viewContributors';
+  urlToAddContributors:string = 'http://talkbook.in:3000/api/addContributor';
   displayBooks:boolean = true;
   displayUserList:boolean = false;
   displayContributorList:boolean = false;

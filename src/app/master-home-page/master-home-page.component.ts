@@ -13,7 +13,7 @@ export class MasterHomePageComponent implements OnInit {
 
   displayLogoutCommand:boolean = false;
   languages = [];
-  urlToGetLanguages = 'http://localhost:3000/api/getLanguages'
+  urlToGetLanguages = 'http://talkbook.in:3000/api/getLanguages'
 
   constructor(public userLoginService:UserLoginService,private router:Router,private http:HttpClient) { }
 

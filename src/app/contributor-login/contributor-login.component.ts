@@ -10,7 +10,7 @@ import {ContributorLoginService} from '../services/contributorLogin.services'
   styleUrls: ['./contributor-login.component.css']
 })
 export class ContributorLoginComponent implements OnInit {
-  url= 'http://localhost:3000/api/contributorLogin';
+  url= 'http://talkbook.in:3000/api/contributorLogin';
   errorMessage:string = '';
 
   constructor(private http:HttpClient,private router:Router,public contributorLoginService:ContributorLoginService) { }
